@@ -112,6 +112,16 @@ export default function Contact() {
               className="bg-[#18181b] border border-white/5 rounded-2xl p-6 sm:p-8"
               action="https://formspree.io/f/your-form-id"
               method="POST"
+              onSubmit={(e) => {
+                e.preventDefault()
+                const form = e.target as HTMLFormElement
+                const data = new FormData(form)
+                const params = new URLSearchParams()
+                data.forEach((val, key) => params.append(key, val.toString()))
+                window.location.href = `mailto:patilsammed022@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(
+                  `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\nMessage:\n${data.get('message')}`
+                )}`
+              }}
             >
               <div className="mb-5">
                 <label className="block text-sm text-[#a1a1aa] mb-2">Name</label>
