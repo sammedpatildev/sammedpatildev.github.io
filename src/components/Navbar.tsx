@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaFileDownload, FaCommentDots } from 'react-icons/fa'
+import { FaFileDownload, FaCommentDots, FaTerminal } from 'react-icons/fa'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -12,7 +12,11 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  onSwitchToOS?: () => void
+}
+
+export default function Navbar({ onSwitchToOS }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [active, setActive] = useState('')
@@ -87,7 +91,18 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {onSwitchToOS && (
+            <button
+              onClick={onSwitchToOS}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-300 hover:text-white text-xs font-mono font-semibold transition-all shadow-[0_0_15px_rgba(168,85,247,0.2)] cursor-pointer"
+              title="Switch to 3D Cyber OS Desktop"
+            >
+              <FaTerminal className="text-purple-400 text-xs" />
+              <span className="hidden sm:inline">Cyber OS</span>
+            </button>
+          )}
+
           <a
             href="/resumes/Python_Backend_Resume.pdf"
             target="_blank"
@@ -138,6 +153,19 @@ export default function Navbar() {
             className="md:hidden mt-2 max-w-7xl mx-auto bg-[#0d0e14]/95 backdrop-blur-2xl rounded-2xl border border-white/10 p-4 shadow-2xl"
           >
             <div className="flex flex-col gap-1 font-mono text-xs">
+              {onSwitchToOS && (
+                <button
+                  onClick={() => {
+                    setMobileOpen(false)
+                    onSwitchToOS()
+                  }}
+                  className="w-full text-left px-4 py-2.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-300 font-bold mb-1 flex items-center gap-2"
+                >
+                  <FaTerminal />
+                  <span>Launch 3D Cyber OS Desktop</span>
+                </button>
+              )}
+
               {navItems.map((item) => (
                 <a
                   key={item.href}

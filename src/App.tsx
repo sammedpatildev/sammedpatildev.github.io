@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Loader from './components/Loader'
 import CustomCursor from './components/CustomCursor'
@@ -16,24 +16,52 @@ import GitHubSection from './components/GitHubSection'
 import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CyberOS from './components/cyber-os/CyberOS'
+import { FaTerminal } from 'react-icons/fa'
 
 function App() {
-  useEffect(() => {
-    // Smooth reveal on scroll
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
+  const [viewMode, setViewMode] = useState<'os' | 'classic'>(() => {
+    return (localStorage.getItem('sammed_portfolio_mode') as 'os' | 'classic') || 'os'
+  })
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+  const switchToClassic = () => {
+    setViewMode('classic')
+    localStorage.setItem('sammed_portfolio_mode', 'classic')
+  }
+
+  const switchToOS = () => {
+    setViewMode('os')
+    localStorage.setItem('sammed_portfolio_mode', 'os')
+  }
+
+  useEffect(() => {
+    if (viewMode === 'classic') {
+      // Smooth reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active')
+            }
+          })
+        },
+        { threshold: 0.1 }
+      )
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+      return () => observer.disconnect()
+    }
+  }, [viewMode])
+
+  if (viewMode === 'os') {
+    return (
+      <>
+        <Loader />
+        <CustomCursor />
+        <CyberOS onSwitchToClassic={switchToClassic} />
+      </>
+    )
+  }
 
   return (
     <>
@@ -41,7 +69,20 @@ function App() {
       <BackgroundCanvas3D />
       <Loader />
       <CustomCursor />
-      <Navbar />
+      <Navbar onSwitchToOS={switchToOS} />
+
+      {/* Floating Quick Return to Cyber OS Button */}
+      <button
+        onClick={switchToOS}
+        className="fixed bottom-6 right-6 z-40 group flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#0c0e15]/90 backdrop-blur-xl border border-purple-500/40 text-white font-mono text-xs font-bold shadow-[0_10px_30px_rgba(168,85,247,0.35)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+        title="Return to 3D Cyber OS Desktop"
+      >
+        <div className="w-5 h-5 rounded-md bg-purple-600 flex items-center justify-center text-[10px]">
+          <FaTerminal />
+        </div>
+        <span>Cyber OS Mode</span>
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+      </button>
 
       <main className="relative z-10 overflow-hidden">
         {/* Hero Section */}
