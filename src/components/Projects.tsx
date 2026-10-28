@@ -1,10 +1,15 @@
+import { useState } from 'react'
 import SectionTag from './SectionTag'
 import SectionTitle from './SectionTitle'
 import Tilt3DCard from './3d/Tilt3DCard'
-import { FaHeartbeat, FaFistRaised, FaRobot, FaServer, FaCheck, FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
+import { FaHeartbeat, FaFistRaised, FaRobot, FaServer, FaCheck, FaExternalLinkAlt, FaGithub, FaLayerGroup } from 'react-icons/fa'
+
+type ProjectCategory = 'all' | 'production' | 'ai' | 'cloud'
 
 const projects = [
   {
+    id: 'roninfc',
+    category: 'production',
     tag: 'Production System • Primary Backend Owner',
     title: 'RoninFC — Combat Sports & Athlete Management Platform',
     icon: <FaFistRaised className="text-4xl text-purple-400" />,
@@ -27,6 +32,8 @@ const projects = [
     githubUrl: 'https://github.com/sammedp-aat',
   },
   {
+    id: 'mhealth',
+    category: 'production',
     tag: 'Healthcare Production System',
     title: 'MHealth — Healthcare Platform for Pregnant Women',
     icon: <FaHeartbeat className="text-4xl text-rose-400" />,
@@ -49,6 +56,8 @@ const projects = [
     githubUrl: 'https://github.com/sammedp-aat',
   },
   {
+    id: 'ai-suite',
+    category: 'ai',
     tag: 'Generative AI & Agentic Systems',
     title: 'AI Agent & RAG Pipeline Suite',
     icon: <FaRobot className="text-4xl text-cyan-400" />,
@@ -71,6 +80,8 @@ const projects = [
     githubUrl: 'https://github.com/sammedp-aat',
   },
   {
+    id: 'cmdc-indina',
+    category: 'cloud',
     tag: 'Cloud Services & E-Commerce',
     title: 'CMDC Cloud Hosting & Indina E-Commerce Platform',
     icon: <FaServer className="text-4xl text-emerald-400" />,
@@ -95,14 +106,43 @@ const projects = [
 ]
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('all')
+
+  const filteredProjects = projects.filter(
+    (p) => activeFilter === 'all' || p.category === activeFilter
+  )
+
   return (
     <section id="projects" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
         <SectionTag text="Enterprise Engineering" />
         <SectionTitle highlight="Projects">Production Systems &</SectionTitle>
 
-        <div className="flex flex-col gap-10 mt-12">
-          {projects.map((project) => (
+        {/* Category Filter Navigation */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-8 mb-12">
+          {[
+            { id: 'all', label: 'All Platforms' },
+            { id: 'production', label: 'Production Systems (RoninFC & MHealth)' },
+            { id: 'ai', label: 'AI & LangGraph Agents' },
+            { id: 'cloud', label: 'Cloud Hosting & E-Commerce' },
+          ].map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveFilter(cat.id as ProjectCategory)}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium transition-all ${
+                activeFilter === cat.id
+                  ? 'bg-gradient-custom text-zinc-950 font-bold shadow-lg shadow-purple-500/20'
+                  : 'bg-zinc-900/60 text-zinc-400 hover:text-white border border-white/5 hover:border-white/20'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects List */}
+        <div className="flex flex-col gap-10">
+          {filteredProjects.map((project) => (
             <Tilt3DCard
               key={project.title}
               maxTilt={4}
@@ -165,6 +205,7 @@ export default function Projects() {
                   <div className="lg:col-span-7 flex flex-col justify-between h-full bg-black/40 p-6 sm:p-8 rounded-2xl border border-white/5">
                     <div>
                       <h4 className="text-xs font-mono uppercase tracking-wider text-purple-400 font-bold mb-4 flex items-center gap-2">
+                        <FaLayerGroup />
                         <span>ENGINEERING HIGHLIGHTS & ARCHITECTURE</span>
                       </h4>
 
