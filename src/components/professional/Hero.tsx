@@ -11,19 +11,57 @@ export default function ProfessionalHero() {
   return (
     <section className="pt-28 pb-16 md:pt-36 md:pb-24 border-b border-zinc-800/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-6">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Available for Senior Python & Backend Engineering Roles</span>
-        </div>
+        {/* Top Header Block with Profile Image */}
+        <div className="flex flex-col-reverse md:flex-row md:items-center justify-between gap-8 mb-6">
+          <div className="flex-1">
+            {/* Availability Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-4">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Available for Senior Python & Backend Engineering Roles</span>
+            </div>
 
-        {/* Name & Title */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-3">
-          Sammed Patil
-        </h1>
-        <p className="text-xl sm:text-2xl font-mono text-zinc-300 font-medium mb-6">
-          Senior Python / Backend Engineer
-        </p>
+            {/* Name & Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-2">
+              Sammed Patil
+            </h1>
+            <p className="text-xl sm:text-2xl font-mono text-zinc-300 font-medium">
+              Senior Python / Backend Engineer
+            </p>
+          </div>
+
+          {/* Profile Photo Card */}
+          <div className="relative flex-shrink-0 self-start md:self-center">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-zinc-700/80 bg-zinc-900 shadow-xl relative group">
+              <img
+                src="/profile.jpg"
+                alt="Sammed Patil"
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  const target = e.currentTarget
+                  if (!target.dataset.triedPng) {
+                    target.dataset.triedPng = 'true'
+                    target.src = '/profile.png'
+                  } else {
+                    target.style.display = 'none'
+                    const fallback = target.nextElementSibling as HTMLElement
+                    if (fallback) fallback.style.display = 'flex'
+                  }
+                }}
+              />
+              <div
+                style={{ display: 'none' }}
+                className="w-full h-full bg-gradient-to-tr from-zinc-800 to-zinc-700 text-white font-mono font-bold text-2xl sm:text-3xl items-center justify-center select-none"
+              >
+                SP
+              </div>
+            </div>
+            {/* Active Status Beacon */}
+            <span
+              className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#09090b] shadow-sm"
+              title="Available for hire"
+            />
+          </div>
+        </div>
 
         {/* Profile Summary directly from Updated Resume */}
         <p className="text-base sm:text-lg text-zinc-300 max-w-3xl leading-relaxed mb-8">

@@ -48,8 +48,23 @@ export default function ProfessionalNavbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Identity */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 rounded-lg bg-zinc-100 text-zinc-950 font-bold font-mono text-sm flex items-center justify-center transition-transform group-hover:scale-105">
-            SP
+          <div className="w-8 h-8 rounded-lg overflow-hidden border border-zinc-700 bg-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105 relative">
+            <img
+              src="/profile.jpg"
+              alt="Sammed Patil"
+              className="w-full h-full object-cover object-top"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none'
+                const fb = e.currentTarget.nextElementSibling as HTMLElement
+                if (fb) fb.style.display = 'flex'
+              }}
+            />
+            <div
+              style={{ display: 'none' }}
+              className="w-full h-full bg-zinc-100 text-zinc-950 font-bold font-mono text-xs items-center justify-center"
+            >
+              SP
+            </div>
           </div>
           <div>
             <span className="font-semibold text-sm tracking-tight text-zinc-100 group-hover:text-white transition-colors">
