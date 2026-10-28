@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Education', href: '#education' },
+  { label: 'Certifications', href: '#education' },
   { label: 'Resume', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -20,7 +20,6 @@ export default function ProfessionalNavbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      // Active section tracking
       const sections = NAV_LINKS.map((link) => link.href.substring(1))
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId)
@@ -57,7 +56,7 @@ export default function ProfessionalNavbar() {
               Sammed Patil
             </span>
             <span className="text-[11px] font-mono text-zinc-400 hidden sm:block">
-              Senior Backend & AI Engineer
+              Senior Python / Backend Engineer
             </span>
           </div>
         </a>
@@ -89,35 +88,34 @@ export default function ProfessionalNavbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-white transition-colors p-2 text-sm"
-            title="GitHub Profile"
+            title="GitHub: github.com/sammedp-aat"
           >
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/sammed-patil-dev"
+            href="https://linkedin.com/in/sammed-patil-dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-blue-400 transition-colors p-2 text-sm"
-            title="LinkedIn Profile"
+            title="LinkedIn: linkedin.com/in/sammed-patil-dev/"
           >
             <FaLinkedin />
           </a>
           <a
             href="mailto:patilsammed022@gmail.com"
             className="text-zinc-400 hover:text-emerald-400 transition-colors p-2 text-sm"
-            title="Email Directly"
+            title="Email: patilsammed022@gmail.com"
           >
             <FaEnvelope />
           </a>
 
           <a
-            href="/resumes/Python_Backend_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/Sammed_Patil_Resume.pdf"
+            download="Sammed_Patil_Resume.pdf"
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-zinc-100 hover:bg-white text-zinc-950 text-xs font-semibold font-mono transition-all ml-2"
           >
             <FaFileDownload className="text-zinc-700 text-xs" />
-            <span>Resume</span>
+            <span>Download Resume</span>
           </a>
         </div>
 
@@ -155,7 +153,7 @@ export default function ProfessionalNavbar() {
                 <FaGithub />
               </a>
               <a
-                href="https://linkedin.com/in/sammed-patil-dev"
+                href="https://linkedin.com/in/sammed-patil-dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-blue-400 text-base"
@@ -170,9 +168,8 @@ export default function ProfessionalNavbar() {
               </a>
             </div>
             <a
-              href="/resumes/Python_Backend_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/Sammed_Patil_Resume.pdf"
+              download="Sammed_Patil_Resume.pdf"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-100 text-zinc-950 text-xs font-mono font-semibold"
             >
               <FaFileDownload className="text-xs" />

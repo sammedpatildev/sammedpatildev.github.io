@@ -1,78 +1,4 @@
-import { FaCalendarAlt, FaMapMarkerAlt, FaCheck } from 'react-icons/fa'
-
-interface JobExperience {
-  company: string
-  role: string
-  period: string
-  location: string
-  description: string
-  achievements: string[]
-  stack: string[]
-}
-
-const EXPERIENCES: JobExperience[] = [
-  {
-    company: 'AimedAt Solutions',
-    role: 'Senior Python / Backend Engineer',
-    period: '09/2023 – Present',
-    location: 'Bangalore, Karnataka, India',
-    description:
-      'Leading backend system design, microservice APIs, distributed async queues, and database performance optimization for enterprise health, sports, and AI platforms.',
-    achievements: [
-      'Primary Backend Owner for RoninFC, a combat sports & athlete tournament management platform. Engineered 30+ production RESTful endpoints with Django REST Framework, PostgreSQL, and Razorpay payment gateway integration.',
-      'Architected medical backend for pregnant women care (MHealth), creating automated trimester-specific nutrition and diet prescription algorithms based on patient clinical biomarkers.',
-      'Slashed p99 database response times from 1.2s to <180ms by diagnosing slow queries, refactoring complex Django ORM queries, and creating composite PostgreSQL B-Tree indexes.',
-      'Engineered asynchronous Celery & Redis task queues for transactional email generation, background reports, and SMS/WhatsApp notifications, reducing main-thread latency by 40%.',
-      'Deployed containerized microservices to AWS EC2 using Docker and automated GitHub Actions CI/CD pipelines, sustaining 99.9% uptime SLA.',
-      'Integrated LangGraph multi-agent workflows and hybrid RAG pipelines using OpenAI text embeddings and pgvector for automated document intelligence.',
-    ],
-    stack: [
-      'Python',
-      'Django',
-      'DRF',
-      'FastAPI',
-      'PostgreSQL',
-      'Celery',
-      'Redis',
-      'AWS EC2',
-      'AWS S3',
-      'Docker',
-      'GitHub Actions',
-      'LangGraph',
-      'pgvector',
-      'Razorpay',
-    ],
-  },
-  {
-    company: 'KMA Labs',
-    role: 'Python Backend Developer',
-    period: '06/2021 – 08/2023',
-    location: 'Bangalore, Karnataka, India',
-    description:
-      'Designed and developed scalable RESTful APIs, background task worker pipelines, and database architectures for domain provisioning and high-volume e-commerce storefronts.',
-    achievements: [
-      'Developed scalable REST APIs using Django and Django REST Framework for cloud hosting domain registration and high-volume e-commerce platforms.',
-      'Engineered asynchronous background worker pipelines with Celery and Redis to handle automated domain DNS provisioning and order fulfillment queues.',
-      'Implemented secure JWT authentication, role-based access control (RBAC), and session invalidation across distributed client applications.',
-      'Managed PostgreSQL and MySQL database schemas, writing complex SQL migrations, database seeders, and maintaining transaction integrity under concurrent checkout requests.',
-      'Configured and deployed production web servers on Linux (Ubuntu), Nginx reverse proxy, and Gunicorn application servers.',
-    ],
-    stack: [
-      'Python',
-      'Django',
-      'DRF',
-      'PostgreSQL',
-      'MySQL',
-      'Celery',
-      'Redis',
-      'Linux (Ubuntu)',
-      'Nginx',
-      'Gunicorn',
-      'Docker',
-      'JWT',
-    ],
-  },
-]
+import { FaCalendarAlt, FaMapMarkerAlt, FaCheck, FaLayerGroup } from 'react-icons/fa'
 
 export default function ProfessionalExperience() {
   return (
@@ -80,72 +6,221 @@ export default function ProfessionalExperience() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-10">
-          <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">02. Work History</span>
+          <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">
+            02. Professional Experience
+          </span>
           <div className="h-[1px] flex-1 bg-zinc-800" />
         </div>
 
         <div className="space-y-12">
-          {EXPERIENCES.map((job) => (
-            <div
-              key={job.company}
-              className="relative pl-0 md:pl-8 border-l-0 md:border-l md:border-zinc-800 space-y-4"
-            >
-              {/* Bullet Node Indicator (Desktop) */}
-              <div className="hidden md:block absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-zinc-400 border-2 border-[#09090b]" />
+          {/* Experience 1: AimedAt Solutions PVT LTD */}
+          <div className="relative pl-0 md:pl-8 border-l-0 md:border-l md:border-zinc-800 space-y-6">
+            <div className="hidden md:block absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#09090b]" />
 
-              {/* Job Header */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-2">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                    <span>{job.role}</span>
-                    <span className="text-zinc-500 font-normal">@</span>
-                    <span className="text-zinc-200">{job.company}</span>
-                  </h3>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-zinc-400 mt-1">
-                    <span className="flex items-center gap-1.5">
-                      <FaCalendarAlt className="text-zinc-500" />
-                      {job.period}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <FaMapMarkerAlt className="text-zinc-500" />
-                      {job.location}
-                    </span>
+            {/* Header */}
+            <div>
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                  <span>Associate Software Engineer</span>
+                  <span className="text-zinc-500 font-normal">@</span>
+                  <span className="text-zinc-200">AimedAt Solutions PVT LTD</span>
+                </h3>
+                <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-0.5 rounded-full w-fit">
+                  03/2022 – Present
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mt-1">
+                <FaCalendarAlt className="text-zinc-500" />
+                <span>March 2022 – Present</span>
+                <span className="text-zinc-600">•</span>
+                <FaMapMarkerAlt className="text-zinc-500" />
+                <span>Bengaluru, Karnataka, India</span>
+              </div>
+            </div>
+
+            {/* Product Deliverables Grid */}
+            <div className="space-y-6">
+              {/* RoninFC */}
+              <div className="p-4 sm:p-5 rounded-xl bg-zinc-900/40 border border-zinc-800 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-sm font-bold text-white font-mono flex items-center gap-2">
+                    <FaLayerGroup className="text-purple-400" />
+                    <span>RoninFC (Combat Sports & Athlete Management Platform)</span>
+                  </h4>
+                  <span className="text-[10px] font-mono text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">
+                    Primary Backend Owner
+                  </span>
+                </div>
+                <div className="space-y-1.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Served as <strong>Primary Backend Owner</strong> leading platform design from requirements to deployment.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Engineered REST APIs for athlete onboarding, coach management, event registration, and automated tournament scheduling.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Integrated Razorpay payment gateway with webhook handlers for subscriptions and media management using AWS S3.</span>
                   </div>
                 </div>
               </div>
 
-              {/* Role Overview */}
-              <p className="text-sm text-zinc-400 leading-relaxed bg-zinc-900/30 p-3.5 rounded-xl border border-zinc-800/60">
-                {job.description}
-              </p>
-
-              {/* Quantifiable Deliverables */}
-              <div className="space-y-2.5 pt-1">
-                {job.achievements.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed">
-                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs">
-                      <FaCheck />
-                    </span>
-                    <span>{item}</span>
+              {/* MHealth */}
+              <div className="p-4 sm:p-5 rounded-xl bg-zinc-900/40 border border-zinc-800 space-y-2.5">
+                <h4 className="text-sm font-bold text-white font-mono flex items-center gap-2">
+                  <FaLayerGroup className="text-rose-400" />
+                  <span>MHealth (Healthcare Platform for Pregnant Women)</span>
+                </h4>
+                <div className="space-y-1.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Designed healthcare APIs for doctor-patient scheduling, medical metric tracking, and lab report processing.</span>
                   </div>
-                ))}
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Developed custom algorithm workflows for personalized dynamic diet recommendations.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Built automated reminder task queues using Celery & Redis.</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Tech Stack Pills */}
-              <div className="pt-3">
-                <div className="flex flex-wrap gap-1.5 font-mono text-xs">
-                  {job.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              {/* CMDC */}
+              <div className="p-4 sm:p-5 rounded-xl bg-zinc-900/40 border border-zinc-800 space-y-2.5">
+                <h4 className="text-sm font-bold text-white font-mono flex items-center gap-2">
+                  <FaLayerGroup className="text-cyan-400" />
+                  <span>CMDC (Cloud Hosting & Domain Reseller Platform)</span>
+                </h4>
+                <div className="space-y-1.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Developed domain management and cloud hosting backend services.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Refactored Django serializers and optimized ORM relationships to improve API throughput.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Built background job queues using Celery for automated domain provisioning.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Indina E-Commerce */}
+              <div className="p-4 sm:p-5 rounded-xl bg-zinc-900/40 border border-zinc-800 space-y-2.5">
+                <h4 className="text-sm font-bold text-white font-mono flex items-center gap-2">
+                  <FaLayerGroup className="text-amber-400" />
+                  <span>Indina E-Commerce Platform</span>
+                </h4>
+                <div className="space-y-1.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Built backend microservices for product catalogs, user carts, order execution, and checkout flows.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Configured secure authentication APIs (JWT, OTP, RBAC) and third-party payment gateways.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Core Platform Optimization & DevOps */}
+              <div className="p-4 sm:p-5 rounded-xl bg-emerald-950/20 border border-emerald-500/20 space-y-2.5">
+                <h4 className="text-sm font-bold text-emerald-300 font-mono">
+                  Core Platform Optimization & DevOps (Across All Products)
+                </h4>
+                <div className="space-y-1.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Tuned PostgreSQL ORM queries and indexing, dropping p99 response times from <strong>1.2s to &lt;180ms</strong> across high-traffic endpoints.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Reduced main-thread latency by <strong>40%</strong> by offloading asynchronous background tasks to Celery/Redis queues.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                    <span>Deployed microservices using <strong>AWS (EC2, S3), Docker, Nginx, Gunicorn</strong>, and GitHub Actions CI/CD with <strong>99.9% uptime</strong>.</span>
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
+
+            {/* Tech Stack Pills */}
+            <div className="pt-2">
+              <div className="flex flex-wrap gap-1.5 font-mono text-xs">
+                {['Python', 'Django', 'DRF', 'FastAPI', 'PostgreSQL', 'Celery', 'Redis', 'AWS EC2', 'AWS S3', 'Docker', 'Nginx', 'Gunicorn', 'GitHub Actions CI/CD', 'Razorpay', 'JWT', 'RBAC'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Experience 2: KMA Labs */}
+          <div className="relative pl-0 md:pl-8 border-l-0 md:border-l md:border-zinc-800 space-y-4">
+            <div className="hidden md:block absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-zinc-500 border-2 border-[#09090b]" />
+
+            {/* Header */}
+            <div>
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                  <span>Freelance Frontend Developer (Contract)</span>
+                  <span className="text-zinc-500 font-normal">@</span>
+                  <span className="text-zinc-200">KMA Labs</span>
+                </h3>
+                <span className="text-xs font-mono text-zinc-400 bg-zinc-800 px-2.5 py-0.5 rounded-full w-fit">
+                  11/2024 – 03/2025
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mt-1">
+                <FaCalendarAlt className="text-zinc-500" />
+                <span>November 2024 – March 2025</span>
+                <span className="text-zinc-600">•</span>
+                <FaMapMarkerAlt className="text-zinc-500" />
+                <span>Virginia, USA</span>
+              </div>
+            </div>
+
+            {/* Bullets */}
+            <div className="p-4 sm:p-5 rounded-xl bg-zinc-900/40 border border-zinc-800 space-y-2">
+              <div className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                <span>Developed a mobile-first, responsive service marketplace web application using <strong>React.js, HTML5, and CSS3</strong>, increasing mobile user engagement by <strong>25%</strong>.</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                <span>Built reusable UI components and integrated state management with backend RESTful APIs for dynamic data fetching.</span>
+              </div>
+              <div className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                <span className="text-emerald-400 mt-1 flex-shrink-0 text-xs"><FaCheck /></span>
+                <span>Optimized cross-browser compatibility, bundle sizes, and performance metrics to achieve top-tier Lighthouse audit scores.</span>
+              </div>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="pt-1">
+              <div className="flex flex-wrap gap-1.5 font-mono text-xs">
+                {['React.js', 'JavaScript', 'HTML5', 'CSS3', 'REST APIs', 'Git'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

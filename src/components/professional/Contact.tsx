@@ -92,13 +92,12 @@ export default function ProfessionalContact() {
                     <FaPhoneAlt />
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Mobile & WhatsApp</div>
-                    <div className="text-sm font-bold text-white select-all">+91 8217030162</div>
-                    <div className="text-[11px] text-zinc-400 select-all">+91 8296257820</div>
+                    <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Phone / WhatsApp</div>
+                    <div className="text-sm font-bold text-white select-all">+91 8296257820</div>
                   </div>
                 </div>
                 <button
-                  onClick={() => handleCopy('+918217030162', 'phone')}
+                  onClick={() => handleCopy('+918296257820', 'phone')}
                   className="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors cursor-pointer"
                   title="Copy Phone Number"
                 >
@@ -122,13 +121,13 @@ export default function ProfessionalContact() {
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://linkedin.com/in/sammed-patil-dev"
+                href="https://linkedin.com/in/sammed-patil-dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-800/80 transition-all flex items-center justify-center gap-2 text-xs font-mono font-semibold text-zinc-200 hover:text-white"
               >
                 <FaLinkedin className="text-blue-400 text-base" />
-                <span>LinkedIn Profile</span>
+                <span>LinkedIn</span>
               </a>
 
               <a
@@ -138,7 +137,7 @@ export default function ProfessionalContact() {
                 className="flex-1 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-800/80 transition-all flex items-center justify-center gap-2 text-xs font-mono font-semibold text-zinc-200 hover:text-white"
               >
                 <FaGithub className="text-base" />
-                <span>GitHub Profile</span>
+                <span>GitHub</span>
               </a>
             </div>
           </div>
@@ -172,7 +171,7 @@ export default function ProfessionalContact() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Alex Smith"
+                      placeholder="e.g. Hiring Manager / Tech Lead"
                       className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
                     />
                   </div>
@@ -186,7 +185,7 @@ export default function ProfessionalContact() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="alex@company.com"
+                      placeholder="name@company.com"
                       className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
                     />
                   </div>
@@ -200,7 +199,7 @@ export default function ProfessionalContact() {
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="e.g. Senior Backend Engineer Opportunity at Tech Corp"
+                    placeholder="e.g. Senior Backend Engineer Opportunity"
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
                   />
                 </div>
@@ -214,7 +213,7 @@ export default function ProfessionalContact() {
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Sammed, we reviewed your work on RoninFC and MHealth and would like to connect regarding..."
+                    placeholder="Hi Sammed, we are looking for a Senior Python / Backend Engineer..."
                     className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors resize-none"
                   />
                 </div>

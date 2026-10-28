@@ -1,40 +1,4 @@
-import { FaFilePdf, FaDownload, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa'
-
-const RESUME_VARIANTS = [
-  {
-    id: 'backend',
-    title: 'Senior Python / Backend Engineer Resume',
-    badge: 'Recommended for Backend Roles',
-    badgeColor: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400',
-    path: '/resumes/Python_Backend_Resume.pdf',
-    filename: 'Sammed_Patil_Python_Backend_Resume.pdf',
-    target: 'Senior Backend Engineer • Distributed Systems • Microservices Lead',
-    summary:
-      'Highlights 4+ years architecting Python/Django/FastAPI microservices, PostgreSQL query optimization (p99 <180ms), Celery/Redis task queues, and AWS production infrastructure.',
-  },
-  {
-    id: 'ai',
-    title: 'AI Engineer & RAG Architect Resume',
-    badge: 'Recommended for AI / ML Roles',
-    badgeColor: 'bg-purple-500/10 border-purple-500/30 text-purple-300',
-    path: '/resumes/AI_Engineer_Resume.pdf',
-    filename: 'Sammed_Patil_AI_Engineer_Resume.pdf',
-    target: 'AI Engineer • LangGraph Multi-Agent • RAG Systems Architect',
-    summary:
-      'Focuses on autonomous LangGraph multi-agent workflows, pgvector hybrid semantic search, OpenAI API integrations, Model Context Protocol (MCP) tool servers, and automated pipelines.',
-  },
-  {
-    id: 'ats',
-    title: 'Master ATS Standard Resume',
-    badge: 'ATS Scanner Optimized',
-    badgeColor: 'bg-blue-500/10 border-blue-500/30 text-blue-400',
-    path: '/resumes/ATS_Resume.pdf',
-    filename: 'Sammed_Patil_ATS_Resume.pdf',
-    target: 'Full Profile • Recruiter / ATS Ingestion • Comprehensive History',
-    summary:
-      'Standard 2-page clean format designed for automated Applicant Tracking Systems, detailing complete work chronology at AimedAt Solutions and KMA Labs, AWS certifications, and education.',
-  },
-]
+import { FaFilePdf, FaDownload, FaExternalLinkAlt, FaAward, FaBriefcase, FaGraduationCap } from 'react-icons/fa'
 
 export default function ProfessionalResumeCenter() {
   return (
@@ -42,78 +6,109 @@ export default function ProfessionalResumeCenter() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-10">
-          <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">06. Resume Documents</span>
+          <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">
+            06. Official Resume
+          </span>
           <div className="h-[1px] flex-1 bg-zinc-800" />
         </div>
 
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Verified Resume Downloads
-          </h2>
-          <p className="text-sm text-zinc-400 mt-2 max-w-2xl">
-            Select and download the resume tailored to your team's role requirements. All resumes are up to date and verified against production deliverables.
-          </p>
-        </div>
+        <div className="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Content (Span 7) */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Verified Official Resume (PDF)</span>
+              </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {RESUME_VARIANTS.map((res) => (
-            <div
-              key={res.id}
-              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 flex flex-col justify-between hover:border-zinc-700 transition-colors"
-            >
-              <div>
-                {/* Header Tag */}
-                <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-zinc-800">
-                  <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded border ${res.badgeColor}`}>
-                    {res.badge}
-                  </span>
-                  <FaFilePdf className="text-red-400 text-sm" />
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Sammed Patil — Senior Python / Backend Engineer
+              </h2>
+
+              <p className="text-sm text-zinc-300 leading-relaxed">
+                Download the complete, official 2-page curriculum vitae covering 4+ years of backend microservices, AWS cloud architecture, asynchronous Celery task queues, database tuning benchmarks, and generative AI agent pipelines.
+              </p>
+
+              {/* Verified Checklist */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 text-xs font-mono text-zinc-300">
+                <div className="flex items-center gap-2">
+                  <FaBriefcase className="text-purple-400 flex-shrink-0" />
+                  <span>AimedAt Solutions (03/2022 – Present)</span>
                 </div>
-
-                <h3 className="text-base font-bold text-white tracking-tight">{res.title}</h3>
-                <div className="text-[11px] font-mono text-zinc-400 mt-1 mb-3">
-                  Focus: {res.target}
+                <div className="flex items-center gap-2">
+                  <FaBriefcase className="text-cyan-400 flex-shrink-0" />
+                  <span>KMA Labs (11/2024 – 03/2025)</span>
                 </div>
-
-                <p className="text-xs text-zinc-300 leading-relaxed mb-6">
-                  {res.summary}
-                </p>
+                <div className="flex items-center gap-2">
+                  <FaAward className="text-amber-400 flex-shrink-0" />
+                  <span>AWS Certified Solutions Architect (SAA-C03)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaGraduationCap className="text-emerald-400 flex-shrink-0" />
+                  <span>MCA (10/2021) • BCA (05/2019)</span>
+                </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-zinc-800/80 flex items-center gap-2">
+              <div className="pt-4 flex flex-wrap items-center gap-3">
                 <a
-                  href={res.path}
-                  download={res.filename}
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-mono text-xs font-semibold transition-all shadow-sm"
+                  href="/Sammed_Patil_Resume.pdf"
+                  download="Sammed_Patil_Resume.pdf"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-mono text-xs sm:text-sm font-bold transition-all shadow-md"
                 >
                   <FaDownload className="text-xs text-zinc-700" />
-                  <span>Download</span>
+                  <span>Download Resume (PDF)</span>
                 </a>
 
                 <a
-                  href={res.path}
+                  href="/Sammed_Patil_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white font-mono text-xs transition-colors"
-                  title="View PDF in New Tab"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white font-mono text-xs sm:text-sm transition-colors border border-zinc-700"
                 >
-                  <span>Preview</span>
-                  <FaExternalLinkAlt className="text-[10px]" />
+                  <span>Open in Browser</span>
+                  <FaExternalLinkAlt className="text-xs" />
                 </a>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Verification Guarantee */}
-        <div className="mt-8 p-4 rounded-xl bg-zinc-900/20 border border-zinc-800/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-zinc-400">
-          <div className="flex items-center gap-2">
-            <FaCheckCircle className="text-emerald-400 flex-shrink-0" />
-            <span>Contains verified employment history, AWS certifications (SAA-C03), and academic degrees.</span>
-          </div>
-          <div className="text-zinc-500">
-            Last Updated: 2026
+            {/* Right Card: Document Snapshot Preview (Span 5) */}
+            <div className="lg:col-span-5 bg-zinc-950/80 border border-zinc-800 rounded-2xl p-5 sm:p-6 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-white">
+                  <FaFilePdf className="text-red-400 text-base" />
+                  <span>Sammed_Patil_Resume.pdf</span>
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500">2-Page Document</span>
+              </div>
+
+              <div className="space-y-2 text-xs font-mono text-zinc-400">
+                <div className="flex justify-between">
+                  <span>Author:</span>
+                  <span className="text-white">Sammed Patil</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Phone:</span>
+                  <span className="text-zinc-200">+91 8296257820</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Email:</span>
+                  <span className="text-zinc-200">patilsammed022@gmail.com</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Location:</span>
+                  <span className="text-zinc-200">Bangalore, Karnataka, India</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Format:</span>
+                  <span className="text-emerald-400">Standard ATS PDF</span>
+                </div>
+              </div>
+
+              <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800 text-[11px] text-zinc-400 leading-snug">
+                Verified candidate document matching current production deliverables, client recommendations, and AWS certifications.
+              </div>
+            </div>
           </div>
         </div>
       </div>

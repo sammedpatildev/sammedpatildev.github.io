@@ -1,4 +1,4 @@
-import { FaAward, FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaCheck } from 'react-icons/fa'
+import { FaAward, FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaGlobe, FaCheck } from 'react-icons/fa'
 
 export default function ProfessionalCertificationsEducation() {
   return (
@@ -15,125 +15,148 @@ export default function ProfessionalCertificationsEducation() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column: Certifications */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4 font-mono">
               <FaAward className="text-amber-400" />
-              <span>Industry Cloud Certifications</span>
+              <span>Certificates & Credentials</span>
             </h3>
 
             {/* AWS SAA-C03 */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-3">
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 border border-amber-500/30 text-amber-400 mb-2">
-                    ASSOCIATE LEVEL
-                  </span>
-                  <h4 className="text-base sm:text-lg font-bold text-white">
-                    AWS Certified Solutions Architect – Associate
-                  </h4>
-                  <div className="text-xs font-mono text-zinc-400 mt-0.5">Exam Code: SAA-C03</div>
-                </div>
+            <div className="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400">
+                  AWS CLOUD CERTIFICATION
+                </span>
+                <span className="text-xs font-mono text-zinc-400">SAA-C03</span>
               </div>
-
-              <p className="text-xs text-zinc-300 leading-relaxed">
-                Validates comprehensive technical knowledge in architecting secure, resilient, high-performing, and cost-optimized cloud architectures on AWS. Focuses on multi-tier application design, decoupling with SQS/SNS, and highly available PostgreSQL/RDS deployments.
+              <h4 className="text-base font-bold text-white">
+                AWS Certified Solutions Architect Associate (SAA-C03)
+              </h4>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Validation of cloud system architecture, high availability, decoupling with message queues, secure IAM, and cost-effective distributed systems design on AWS.
               </p>
-
-              <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-zinc-400">
-                <span className="flex items-center gap-1 text-emerald-400">
-                  <FaCheck className="text-[9px]" /> Compute (EC2, ECS)
-                </span>
-                <span className="flex items-center gap-1 text-emerald-400">
-                  <FaCheck className="text-[9px]" /> Storage (S3, EFS)
-                </span>
-                <span className="flex items-center gap-1 text-emerald-400">
-                  <FaCheck className="text-[9px]" /> Security (IAM, VPC)
-                </span>
-              </div>
             </div>
 
             {/* AWS CLF-C02 */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-3">
-              <div>
-                <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700/50 mb-2">
-                  FOUNDATIONAL
+            <div className="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700/50">
+                  AWS CLOUD CERTIFICATION
                 </span>
-                <h4 className="text-base sm:text-lg font-bold text-white">
-                  AWS Certified Cloud Practitioner
-                </h4>
-                <div className="text-xs font-mono text-zinc-400 mt-0.5">Exam Code: CLF-C02</div>
+                <span className="text-xs font-mono text-zinc-400">CLF-C02</span>
               </div>
+              <h4 className="text-base font-bold text-white">
+                AWS Certified Cloud Practitioner (CLF-C02)
+              </h4>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Foundational verification of AWS cloud infrastructure, security compliance, shared responsibility, and architectural best practices.
+              </p>
+            </div>
 
-              <p className="text-xs text-zinc-300 leading-relaxed">
-                Foundational verification of cloud fluency, security standards, shared responsibility model, billing and pricing models, and core AWS infrastructure services.
+            {/* Building AI Agents & Chatbots with LangGraph */}
+            <div className="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-purple-500/10 border border-purple-500/30 text-purple-300">
+                  AI & AGENT ENGINEERING
+                </span>
+              </div>
+              <h4 className="text-base font-bold text-white">
+                Building AI Agents & Chatbots with LangGraph
+              </h4>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Stateful multi-agent workflows, branching state machines, human-in-the-loop, tool calling, and autonomous decision pipelines with LangGraph and Python.
+              </p>
+            </div>
+
+            {/* Prompt Engineering for Generative AI */}
+            <div className="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+                  GENERATIVE AI
+                </span>
+              </div>
+              <h4 className="text-base font-bold text-white">
+                Prompt Engineering for Generative AI
+              </h4>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Techniques in structured output generation, few-shot prompting, schema-constrained LLM inference, and RAG context optimization.
               </p>
             </div>
           </div>
 
-          {/* Right Column: Academic Degrees */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4">
-              <FaGraduationCap className="text-cyan-400" />
-              <span>Academic Degrees</span>
-            </h3>
+          {/* Right Column: Education & Languages */}
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4 font-mono">
+                <FaGraduationCap className="text-cyan-400" />
+                <span>Education</span>
+              </h3>
 
-            {/* MCA */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-3">
-              <div>
-                <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 border border-purple-500/30 text-purple-300 mb-2">
-                  POSTGRADUATE DEGREE
-                </span>
-                <h4 className="text-base sm:text-lg font-bold text-white">
-                  Master of Computer Applications (MCA)
+              {/* MCA */}
+              <div className="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-purple-500/10 border border-purple-500/30 text-purple-300">
+                    POSTGRADUATE DEGREE
+                  </span>
+                  <span className="text-xs font-mono text-zinc-400">10/2021</span>
+                </div>
+                <h4 className="text-base font-bold text-white">
+                  Master Of Computer Application (MCA)
                 </h4>
-                <div className="text-xs font-mono text-zinc-300 mt-0.5">
-                  Bangalore City University
+                <div className="text-xs text-zinc-300">
+                  Sambhram Academy of Management Studies, Bangalore City University
+                </div>
+                <div className="flex items-center gap-4 text-xs font-mono text-zinc-500 pt-1">
+                  <span className="flex items-center gap-1.5">
+                    <FaCalendarAlt /> Completed: October 2021
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <FaMapMarkerAlt /> Bangalore
+                  </span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400">
-                <span className="flex items-center gap-1.5">
-                  <FaCalendarAlt className="text-zinc-500" />
-                  Completed: October 2021
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <FaMapMarkerAlt className="text-zinc-500" />
-                  Bangalore, Karnataka
-                </span>
+              {/* BCA */}
+              <div className="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700/50">
+                    UNDERGRADUATE DEGREE
+                  </span>
+                  <span className="text-xs font-mono text-zinc-400">05/2019</span>
+                </div>
+                <h4 className="text-base font-bold text-white">
+                  Bachelor Of Computer Application (BCA)
+                </h4>
+                <div className="text-xs text-zinc-300">
+                  SJPNTrust's BCA College Nidasoshi, RCU University
+                </div>
+                <div className="flex items-center gap-4 text-xs font-mono text-zinc-500 pt-1">
+                  <span className="flex items-center gap-1.5">
+                    <FaCalendarAlt /> Completed: May 2019
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <FaMapMarkerAlt /> Belagavi
+                  </span>
+                </div>
               </div>
-
-              <p className="text-xs text-zinc-300 leading-relaxed">
-                Advanced studies in distributed systems, advanced database engineering, object-oriented software engineering, algorithmic efficiency, and web architectures.
-              </p>
             </div>
 
-            {/* BCA */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-3">
-              <div>
-                <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700/50 mb-2">
-                  UNDERGRADUATE DEGREE
-                </span>
-                <h4 className="text-base sm:text-lg font-bold text-white">
-                  Bachelor of Computer Applications (BCA)
-                </h4>
-                <div className="text-xs font-mono text-zinc-300 mt-0.5">
-                  Rani Channamma University (RCU)
-                </div>
+            {/* Languages */}
+            <div className="p-5 rounded-2xl bg-zinc-900/30 border border-zinc-800 space-y-3">
+              <h4 className="text-sm font-bold text-white font-mono flex items-center gap-2">
+                <FaGlobe className="text-emerald-400" />
+                <span>Languages</span>
+              </h4>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+                {['English', 'Kannada', 'Hindi', 'Marathi'].map((lang) => (
+                  <div
+                    key={lang}
+                    className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-200 text-center flex items-center justify-center gap-1.5"
+                  >
+                    <FaCheck className="text-emerald-400 text-[10px]" />
+                    <span>{lang}</span>
+                  </div>
+                ))}
               </div>
-
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400">
-                <span className="flex items-center gap-1.5">
-                  <FaCalendarAlt className="text-zinc-500" />
-                  Completed: May 2019
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <FaMapMarkerAlt className="text-zinc-500" />
-                  Karnataka, India
-                </span>
-              </div>
-
-              <p className="text-xs text-zinc-300 leading-relaxed">
-                Foundations in computer science: data structures & algorithms, relational database management systems (RDBMS), operating systems, and computer networks.
-              </p>
             </div>
           </div>
         </div>
