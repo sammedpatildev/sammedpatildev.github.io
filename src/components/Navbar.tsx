@@ -4,10 +4,11 @@ import { FaFileDownload, FaCommentDots, FaTerminal } from 'react-icons/fa'
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Architecture', href: '#architecture' },
   { label: 'Projects', href: '#projects' },
   { label: 'AI & RAG', href: '#ai' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Resume', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ]

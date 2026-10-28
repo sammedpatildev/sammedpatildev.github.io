@@ -7,10 +7,11 @@ import ScrollProgressBar3D from './components/3d/ScrollProgressBar3D'
 import Scroll3DSection from './components/3d/Scroll3DSection'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
+import ArchitectureVisualizer from './components/ArchitectureVisualizer'
 import Projects from './components/Projects'
 import AIInnovation from './components/AIInnovation'
+import Skills from './components/Skills'
+import Experience from './components/Experience'
 import ResumeSection from './components/Resume'
 import GitHubSection from './components/GitHubSection'
 import Certifications from './components/Certifications'
@@ -20,8 +21,10 @@ import CyberOS from './components/cyber-os/CyberOS'
 import { FaTerminal } from 'react-icons/fa'
 
 function App() {
-  const [viewMode, setViewMode] = useState<'os' | 'classic'>(() => {
-    return (localStorage.getItem('sammed_portfolio_mode') as 'os' | 'classic') || 'os'
+  // Default to 'classic' (the ultra-modern 3D scrolling experience)
+  const [viewMode, setViewMode] = useState<'classic' | 'os'>(() => {
+    const saved = localStorage.getItem('sammed_portfolio_mode')
+    return saved === 'os' ? 'os' : 'classic'
   })
 
   const switchToClassic = () => {
@@ -36,7 +39,6 @@ function App() {
 
   useEffect(() => {
     if (viewMode === 'classic') {
-      // Smooth reveal on scroll
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -71,69 +73,75 @@ function App() {
       <CustomCursor />
       <Navbar onSwitchToOS={switchToOS} />
 
-      {/* Floating Quick Return to Cyber OS Button */}
+      {/* Floating Quick Switch to Cyber OS Desk (Non-intrusive) */}
       <button
         onClick={switchToOS}
         className="fixed bottom-6 right-6 z-40 group flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#0c0e15]/90 backdrop-blur-xl border border-purple-500/40 text-white font-mono text-xs font-bold shadow-[0_10px_30px_rgba(168,85,247,0.35)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-        title="Return to 3D Cyber OS Desktop"
+        title="Experience Experimental 3D Cyber OS Desktop"
       >
         <div className="w-5 h-5 rounded-md bg-purple-600 flex items-center justify-center text-[10px]">
           <FaTerminal />
         </div>
-        <span>Cyber OS Mode</span>
+        <span className="hidden sm:inline">Cyber OS Mode</span>
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
       </button>
 
       <main className="relative z-10 overflow-hidden">
-        {/* Hero Section */}
+        {/* 1. Hero Section */}
         <Hero />
 
-        {/* 3D Scroll Driven Section: About */}
+        {/* 2. 3D Scroll Driven Section: About */}
         <Scroll3DSection id="about" tiltIntensity={8}>
           <About />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: Experience */}
-        <Scroll3DSection id="experience" tiltIntensity={7}>
-          <Experience />
+        {/* 3. Interactive Systems Architecture Workbench */}
+        <Scroll3DSection id="architecture" tiltIntensity={7}>
+          <ArchitectureVisualizer />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: Projects */}
+        {/* 4. 3D Scroll Driven Section: Projects */}
         <Scroll3DSection id="projects" tiltIntensity={7}>
           <Projects />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: AI & Innovation */}
+        {/* 5. 3D Scroll Driven Section: AI & Innovation */}
         <Scroll3DSection id="ai" tiltIntensity={8}>
           <AIInnovation />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: Skills & 3D Globe */}
+        {/* 6. 3D Scroll Driven Section: Skills & 3D Globe */}
         <Scroll3DSection id="skills" tiltIntensity={6}>
           <Skills />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: Resume */}
+        {/* 7. 3D Scroll Driven Section: Experience */}
+        <Scroll3DSection id="experience" tiltIntensity={7}>
+          <Experience />
+        </Scroll3DSection>
+
+        {/* 8. 3D Scroll Driven Section: Resume Downloads */}
         <Scroll3DSection id="resume" tiltIntensity={7}>
           <ResumeSection />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: GitHub */}
+        {/* 9. 3D Scroll Driven Section: GitHub */}
         <Scroll3DSection id="github" tiltIntensity={7}>
           <GitHubSection />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: Certifications */}
+        {/* 10. 3D Scroll Driven Section: Certifications */}
         <Scroll3DSection id="certifications" tiltIntensity={6}>
           <Certifications />
         </Scroll3DSection>
 
-        {/* 3D Scroll Driven Section: Contact */}
+        {/* 11. 3D Scroll Driven Section: Contact */}
         <Scroll3DSection id="contact" tiltIntensity={8}>
           <Contact />
         </Scroll3DSection>
       </main>
 
+      {/* 12. Footer */}
       <Footer />
     </>
   )
