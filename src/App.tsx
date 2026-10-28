@@ -1,150 +1,48 @@
-import { useState, useEffect } from 'react'
-import Navbar from './components/Navbar'
-import Loader from './components/Loader'
-import CustomCursor from './components/CustomCursor'
-import BackgroundCanvas3D from './components/3d/BackgroundCanvas3D'
-import ScrollProgressBar3D from './components/3d/ScrollProgressBar3D'
-import Scroll3DSection from './components/3d/Scroll3DSection'
-import Hero from './components/Hero'
-import About from './components/About'
-import ArchitectureVisualizer from './components/ArchitectureVisualizer'
-import Projects from './components/Projects'
-import AIInnovation from './components/AIInnovation'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
-import ResumeSection from './components/Resume'
-import GitHubSection from './components/GitHubSection'
-import Certifications from './components/Certifications'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import CyberOS from './components/cyber-os/CyberOS'
-import { FaTerminal } from 'react-icons/fa'
+import ProfessionalNavbar from './components/professional/Navbar'
+import ProfessionalHero from './components/professional/Hero'
+import ProfessionalAbout from './components/professional/About'
+import ProfessionalExperience from './components/professional/Experience'
+import ProfessionalProjects from './components/professional/Projects'
+import ProfessionalSkills from './components/professional/Skills'
+import ProfessionalCertificationsEducation from './components/professional/CertificationsEducation'
+import ProfessionalResumeCenter from './components/professional/ResumeCenter'
+import ProfessionalContact from './components/professional/Contact'
+import ProfessionalFooter from './components/professional/Footer'
 
-function App() {
-  // Default to 'classic' (the ultra-modern 3D scrolling experience)
-  const [viewMode, setViewMode] = useState<'classic' | 'os'>(() => {
-    const saved = localStorage.getItem('sammed_portfolio_mode')
-    return saved === 'os' ? 'os' : 'classic'
-  })
-
-  const switchToClassic = () => {
-    setViewMode('classic')
-    localStorage.setItem('sammed_portfolio_mode', 'classic')
-  }
-
-  const switchToOS = () => {
-    setViewMode('os')
-    localStorage.setItem('sammed_portfolio_mode', 'os')
-  }
-
-  useEffect(() => {
-    if (viewMode === 'classic') {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active')
-            }
-          })
-        },
-        { threshold: 0.1 }
-      )
-
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-      return () => observer.disconnect()
-    }
-  }, [viewMode])
-
-  if (viewMode === 'os') {
-    return (
-      <>
-        <Loader />
-        <CustomCursor />
-        <CyberOS onSwitchToClassic={switchToClassic} />
-      </>
-    )
-  }
-
+export default function App() {
   return (
-    <>
-      <ScrollProgressBar3D />
-      <BackgroundCanvas3D />
-      <Loader />
-      <CustomCursor />
-      <Navbar onSwitchToOS={switchToOS} />
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-zinc-800 selection:text-white font-sans antialiased">
+      {/* Fixed Clean Navigation */}
+      <ProfessionalNavbar />
 
-      {/* Floating Quick Switch to Cyber OS Desk (Non-intrusive) */}
-      <button
-        onClick={switchToOS}
-        className="fixed bottom-6 right-6 z-40 group flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#0c0e15]/90 backdrop-blur-xl border border-purple-500/40 text-white font-mono text-xs font-bold shadow-[0_10px_30px_rgba(168,85,247,0.35)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-        title="Experience Experimental 3D Cyber OS Desktop"
-      >
-        <div className="w-5 h-5 rounded-md bg-purple-600 flex items-center justify-center text-[10px]">
-          <FaTerminal />
-        </div>
-        <span className="hidden sm:inline">Cyber OS Mode</span>
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-      </button>
+      <main>
+        {/* Hero Section */}
+        <ProfessionalHero />
 
-      <main className="relative z-10 overflow-hidden">
-        {/* 1. Hero Section */}
-        <Hero />
+        {/* Profile & Biography */}
+        <ProfessionalAbout />
 
-        {/* 2. 3D Scroll Driven Section: About */}
-        <Scroll3DSection id="about" tiltIntensity={8}>
-          <About />
-        </Scroll3DSection>
+        {/* Work Experience (Work History) */}
+        <ProfessionalExperience />
 
-        {/* 3. Interactive Systems Architecture Workbench */}
-        <Scroll3DSection id="architecture" tiltIntensity={7}>
-          <ArchitectureVisualizer />
-        </Scroll3DSection>
+        {/* Systems & Case Studies */}
+        <ProfessionalProjects />
 
-        {/* 4. 3D Scroll Driven Section: Projects */}
-        <Scroll3DSection id="projects" tiltIntensity={7}>
-          <Projects />
-        </Scroll3DSection>
+        {/* Technical Capabilities */}
+        <ProfessionalSkills />
 
-        {/* 5. 3D Scroll Driven Section: AI & Innovation */}
-        <Scroll3DSection id="ai" tiltIntensity={8}>
-          <AIInnovation />
-        </Scroll3DSection>
+        {/* Certifications & Academic Degrees */}
+        <ProfessionalCertificationsEducation />
 
-        {/* 6. 3D Scroll Driven Section: Skills & 3D Globe */}
-        <Scroll3DSection id="skills" tiltIntensity={6}>
-          <Skills />
-        </Scroll3DSection>
+        {/* Verified Resume Center */}
+        <ProfessionalResumeCenter />
 
-        {/* 7. 3D Scroll Driven Section: Experience */}
-        <Scroll3DSection id="experience" tiltIntensity={7}>
-          <Experience />
-        </Scroll3DSection>
-
-        {/* 8. 3D Scroll Driven Section: Resume Downloads */}
-        <Scroll3DSection id="resume" tiltIntensity={7}>
-          <ResumeSection />
-        </Scroll3DSection>
-
-        {/* 9. 3D Scroll Driven Section: GitHub */}
-        <Scroll3DSection id="github" tiltIntensity={7}>
-          <GitHubSection />
-        </Scroll3DSection>
-
-        {/* 10. 3D Scroll Driven Section: Certifications */}
-        <Scroll3DSection id="certifications" tiltIntensity={6}>
-          <Certifications />
-        </Scroll3DSection>
-
-        {/* 11. 3D Scroll Driven Section: Contact */}
-        <Scroll3DSection id="contact" tiltIntensity={8}>
-          <Contact />
-        </Scroll3DSection>
+        {/* Direct Contact */}
+        <ProfessionalContact />
       </main>
 
-      {/* 12. Footer */}
-      <Footer />
-    </>
+      {/* Professional Footer */}
+      <ProfessionalFooter />
+    </div>
   )
 }
-
-export default App
