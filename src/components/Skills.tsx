@@ -1,94 +1,130 @@
 import { motion } from 'framer-motion'
 import SectionTag from './SectionTag'
 import SectionTitle from './SectionTitle'
+import SkillsSphere3D from './3d/SkillsSphere3D'
+import Tilt3DCard from './3d/Tilt3DCard'
 import {
-  SiPython, SiDjango, SiFastapi, SiFlask, SiPostgresql, SiMysql, SiMongodb,
-  SiDocker, SiLinux, SiNginx, SiGunicorn, SiReact,
-  SiHtml5, SiCss, SiJavascript,
+  SiPython, SiDjango, SiFastapi, SiPostgresql, SiMysql, SiSqlite,
+  SiDocker, SiLinux, SiNginx, SiGunicorn, SiGit, SiDigitalocean,
+  SiJavascript, SiSwagger,
 } from 'react-icons/si'
-import { FaAws, FaRobot } from 'react-icons/fa'
+import { FaAws, FaRobot, FaBrain, FaCreditCard, FaTasks, FaShieldAlt } from 'react-icons/fa'
 import { DiRedis } from 'react-icons/di'
-import { TbBrandCSharp } from 'react-icons/tb'
+import { TbBrandCSharp, TbBrandOpenai } from 'react-icons/tb'
 
 const categories = [
   {
-    title: 'Backend',
-    icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>,
+    title: 'Languages & Core',
+    icon: <SiPython className="w-6 h-6" />,
     skills: [
       { name: 'Python', icon: SiPython },
-      { name: 'Django', icon: SiDjango },
-      { name: 'DRF', icon: SiDjango },
-      { name: 'FastAPI', icon: SiFastapi },
-      { name: 'Flask', icon: SiFlask },
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'SQL', icon: SiPostgresql },
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'MySQL', icon: SiMysql },
+      { name: 'SQLite', icon: SiSqlite },
     ],
   },
   {
-    title: 'Database',
-    icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>,
+    title: 'Backend Frameworks',
+    icon: <SiDjango className="w-6 h-6" />,
     skills: [
-      { name: 'PostgreSQL', icon: SiPostgresql },
-      { name: 'MySQL', icon: SiMysql },
-      { name: 'SQLite', icon: SiMysql },
+      { name: 'Django', icon: SiDjango },
+      { name: 'DRF', icon: SiDjango },
+      { name: 'FastAPI', icon: SiFastapi },
+      { name: 'RESTful APIs', icon: SiFastapi },
+      { name: 'System Design', icon: SiDjango },
+      { name: 'Microservices', icon: SiDjango },
+    ],
+  },
+  {
+    title: 'Distributed Systems & Async',
+    icon: <FaTasks className="w-6 h-6" />,
+    skills: [
+      { name: 'Celery', icon: FaTasks },
       { name: 'Redis', icon: DiRedis },
-      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'Task Queues', icon: FaTasks },
+      { name: 'Message Brokers', icon: DiRedis },
+      { name: 'Webhooks', icon: FaTasks },
     ],
   },
   {
     title: 'Cloud & DevOps',
-    icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>,
+    icon: <FaAws className="w-6 h-6" />,
     skills: [
+      { name: 'AWS (EC2, S3, IAM)', icon: FaAws },
       { name: 'Docker', icon: SiDocker },
-      { name: 'AWS', icon: FaAws },
-      { name: 'Linux', icon: SiLinux },
+      { name: 'GitHub Actions CI/CD', icon: SiGit },
       { name: 'Nginx', icon: SiNginx },
       { name: 'Gunicorn', icon: SiGunicorn },
-      { name: 'CI/CD', icon: SiDocker },
+      { name: 'Linux', icon: SiLinux },
+      { name: 'DigitalOcean', icon: SiDigitalocean },
     ],
   },
   {
-    title: 'AI & LLMs',
-    icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>,
+    title: 'Databases & Security',
+    icon: <FaShieldAlt className="w-6 h-6" />,
     skills: [
-      { name: 'OpenAI', icon: FaRobot },
-      { name: 'LangChain', icon: TbBrandCSharp },
-      { name: 'LangGraph', icon: TbBrandCSharp },
+      { name: 'Schema Design', icon: SiPostgresql },
+      { name: 'Query Optimization', icon: SiPostgresql },
+      { name: 'JWT', icon: FaShieldAlt },
+      { name: 'RBAC', icon: FaShieldAlt },
+      { name: 'OTP', icon: FaShieldAlt },
+      { name: 'Swagger / OpenAPI', icon: SiSwagger },
+    ],
+  },
+  {
+    title: 'AI & Automation',
+    icon: <FaBrain className="w-6 h-6" />,
+    skills: [
+      { name: 'Generative AI', icon: FaBrain },
+      { name: 'OpenAI API', icon: TbBrandOpenai },
       { name: 'RAG', icon: FaRobot },
-      { name: 'Prompt Eng', icon: FaRobot },
       { name: 'AI Agents', icon: FaRobot },
-      { name: 'n8n', icon: FaRobot },
+      { name: 'LangGraph', icon: TbBrandCSharp },
+      { name: 'MCP (Model Context)', icon: FaRobot },
+      { name: 'Prompt Engineering', icon: FaBrain },
+      { name: 'n8n Workflows', icon: FaRobot },
     ],
   },
   {
-    title: 'Frontend',
-    icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>,
+    title: 'Third-Party Integrations',
+    icon: <FaCreditCard className="w-6 h-6" />,
     skills: [
-      { name: 'React', icon: SiReact },
-      { name: 'HTML5', icon: SiHtml5 },
-      { name: 'CSS3', icon: SiCss },
-      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'Razorpay Gateway', icon: FaCreditCard },
+      { name: 'Payment Gateways', icon: FaCreditCard },
+      { name: 'Webhook Handlers', icon: FaTasks },
+      { name: 'Third-Party REST APIs', icon: SiFastapi },
     ],
   },
 ]
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28">
+    <section id="skills" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
-        <SectionTag text="Tech Stack" />
-        <SectionTitle highlight="Technologies">Skills &</SectionTitle>
+        <SectionTag text="3D Interactive Stack" />
+        <SectionTitle highlight="Technologies">Verified Skills &</SectionTitle>
 
-        {/* Marquee */}
+        {/* 3D Skills Interactive Globe Sphere */}
+        <SkillsSphere3D />
+
+        {/* Dynamic Marquee */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="overflow-hidden py-8 mb-12 border-y border-[#27272a]"
+          className="overflow-hidden py-6 my-10 border-y border-white/10"
         >
-          <div className="flex gap-10 whitespace-nowrap animate-[marquee_30s_linear_infinite]">
+          <div className="flex gap-10 whitespace-nowrap animate-[marquee_28s_linear_infinite]">
             {[...Array(2)].map((_, idx) => (
               <div key={idx} className="flex gap-10">
-                {['Python', 'Django', 'PostgreSQL', 'AWS', 'Docker', 'Redis', 'GenAI', 'RAG', 'FastAPI', 'LangChain', 'AI Agents', 'n8n'].map((item) => (
-                  <span key={item} className="text-2xl font-bold text-[#27272a] hover:text-[#fafafa] transition-colors">
+                {[
+                  'Python 3.12', 'Django & DRF', 'FastAPI', 'PostgreSQL (p99 <180ms)',
+                  'Celery & Redis', 'AWS Cloud Architect', 'LangGraph Agents', 'RAG Pipelines',
+                  'Docker Containers', 'Razorpay Webhooks', 'Model Context Protocol (MCP)',
+                ].map((item) => (
+                  <span key={item} className="text-xl sm:text-2xl font-bold text-zinc-600 hover:text-white transition-colors font-mono">
                     {item}
                   </span>
                 ))}
@@ -97,36 +133,41 @@ export default function Skills() {
           </div>
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* Categorized Skills Grid with 3D Tilt */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {categories.map((cat, idx) => (
-            <motion.div
+            <Tilt3DCard
               key={cat.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group bg-[#18181b] border border-white/5 rounded-2xl p-6 sm:p-8 hover:border-[#a78bfa4d] hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+              maxTilt={8}
+              glareColor="rgba(167, 139, 250, 0.15)"
+              className="rounded-2xl"
             >
-              <div className="absolute inset-0 bg-gradient-custom opacity-0 group-hover:opacity-[0.05] transition-opacity duration-300" />
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-[#a78bfa1a] rounded-xl flex items-center justify-center text-[#a78bfa] group-hover:bg-gradient-custom group-hover:text-[#09090b] transition-all mb-5">
-                  {cat.icon}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="group h-full bg-[#111219]/90 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-purple-500/40 transition-all duration-300 relative overflow-hidden backdrop-blur-xl shadow-lg flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-purple-400 group-hover:bg-gradient-custom group-hover:text-zinc-950 transition-all mb-5 shadow-md">
+                    {cat.icon}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold mb-4 text-white font-mono">{cat.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map((skill) => (
+                      <span
+                        key={skill.name}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/40 border border-white/5 rounded-lg text-xs text-zinc-300 group-hover:border-white/20 transition-all font-mono"
+                      >
+                        <skill.icon className="w-3.5 h-3.5 text-purple-400" />
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-4">{cat.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill) => (
-                    <span
-                      key={skill.name}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#09090b] rounded-lg text-xs text-[#a1a1aa] group-hover:bg-[#a78bfa] group-hover:text-[#09090b] transition-all"
-                    >
-                      <skill.icon className="w-3.5 h-3.5" />
-                      {skill.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Tilt3DCard>
           ))}
         </div>
       </div>

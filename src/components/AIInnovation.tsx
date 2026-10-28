@@ -1,93 +1,100 @@
 import { motion } from 'framer-motion'
 import SectionTag from './SectionTag'
 import SectionTitle from './SectionTitle'
+import Tilt3DCard from './3d/Tilt3DCard'
+import InteractiveConsole3D from './3d/InteractiveConsole3D'
+import { FaRobot, FaBrain, FaSearch, FaCogs, FaBolt } from 'react-icons/fa'
 
 const cards = [
   {
-    title: 'AI Agents',
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    desc: 'Building intelligent autonomous agents using LangChain, LangGraph, and CrewAI for multi-step task orchestration and tool-using capabilities.',
+    title: 'Autonomous AI Agents',
+    icon: <FaRobot className="w-8 h-8" />,
+    desc: 'Building stateful, multi-actor autonomous agents using LangGraph and LangChain. Implemented tool-calling capabilities, self-correcting loops, and state persistence in Redis.',
     color: '#a78bfa',
+    badge: 'LangGraph Certified',
   },
   {
-    title: 'LLM Applications',
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-      </svg>
-    ),
-    desc: 'Integrating OpenAI, Anthropic Claude, and local LLMs for document analysis, content generation, and intelligent decision-making systems.',
+    title: 'RAG Pipeline Architecture',
+    icon: <FaSearch className="w-8 h-8" />,
+    desc: 'Engineering production Retrieval-Augmented Generation (RAG) with vector databases (Pinecone, Chroma), hybrid search, semantic chunking, and cross-encoder reranking to ensure 0% hallucination.',
     color: '#38bdf8',
+    badge: 'Vector Search',
   },
   {
-    title: 'RAG Systems',
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    ),
-    desc: 'Implementing retrieval-augmented generation with hybrid search, chunking strategies, vector databases (Pinecone, Weaviate), and reranking.',
+    title: 'Model Context Protocol (MCP)',
+    icon: <FaCogs className="w-8 h-8" />,
+    desc: 'Leveraging open standard Model Context Protocol (MCP) servers and clients to connect LLM agent workflows seamlessly with internal databases, APIs, and microservices.',
     color: '#34d399',
+    badge: 'Standard Protocol',
   },
   {
-    title: 'Workflow Automation',
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-      </svg>
-    ),
-    desc: 'Building intelligent automation with n8n, connecting AI models with external services for resume generation, job search, and content workflows.',
+    title: 'n8n Workflow Automation',
+    icon: <FaBolt className="w-8 h-8" />,
+    desc: 'Orchestrating complex multi-step automated workflows with n8n and Python webhooks, connecting backend APIs with LLM processing queues for event-driven automation.',
     color: '#f59e0b',
+    badge: 'Workflow Queues',
   },
   {
-    title: 'Intelligent APIs',
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-      </svg>
-    ),
-    desc: 'Creating AI-powered API endpoints with FastAPI, integrating LLM inference, structured output validation, and scalable serving with monitoring.',
+    title: 'Intelligent Serving APIs',
+    icon: <FaBrain className="w-8 h-8" />,
+    desc: 'Creating high-throughput, asynchronous inference APIs using FastAPI and Pydantic/Instructor for strict JSON schema output validation and real-time streaming.',
     color: '#f472b6',
+    badge: 'FastAPI Serving',
   },
 ]
 
 export default function AIInnovation() {
   return (
-    <section id="ai" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28">
+    <section id="ai" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
-        <SectionTag text="Innovation" />
-        <SectionTitle highlight="Automation">AI &</SectionTitle>
+        <SectionTag text="Agentic Architecture" />
+        <SectionTitle highlight="Automation">Generative AI &</SectionTitle>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* 3D Interactive Telemetry & Console Playground */}
+        <InteractiveConsole3D />
+
+        {/* 3D Tilt Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {cards.map((card, idx) => (
-            <motion.div
+            <Tilt3DCard
               key={card.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group bg-[#18181b] border border-white/5 rounded-2xl p-6 sm:p-8 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-              style={{ borderColor: `${card.color}1a` }}
+              maxTilt={8}
+              glareColor={`${card.color}25`}
+              className="rounded-3xl"
             >
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-[0.05] transition-opacity duration-300"
-                style={{ background: `linear-gradient(135deg, ${card.color}, transparent)` }}
-              />
-              <div className="relative z-10">
-                <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
-                  style={{ background: `${card.color}1a`, color: card.color }}
-                >
-                  {card.icon}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group h-full bg-[#111219]/90 border border-white/10 rounded-3xl p-6 sm:p-8 transition-all duration-300 relative overflow-hidden backdrop-blur-xl flex flex-col justify-between"
+                style={{ borderColor: `${card.color}25` }}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg"
+                      style={{ background: `${card.color}15`, color: card.color }}
+                    >
+                      {card.icon}
+                    </div>
+                    <span
+                      className="text-[10px] font-mono px-2.5 py-1 rounded-full border"
+                      style={{
+                        background: `${card.color}10`,
+                        borderColor: `${card.color}30`,
+                        color: card.color,
+                      }}
+                    >
+                      {card.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold mb-3 text-white font-mono">{card.title}</h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">{card.desc}</p>
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{card.title}</h3>
-                <p className="text-sm text-[#a1a1aa] leading-relaxed">{card.desc}</p>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Tilt3DCard>
           ))}
         </div>
       </div>

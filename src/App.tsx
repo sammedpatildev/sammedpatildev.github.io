@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Loader from './components/Loader'
 import CustomCursor from './components/CustomCursor'
+import BackgroundCanvas3D from './components/3d/BackgroundCanvas3D'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -34,10 +35,11 @@ function App() {
 
   return (
     <>
+      <BackgroundCanvas3D />
       <Loader />
       <CustomCursor />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
