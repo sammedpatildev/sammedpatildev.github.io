@@ -9,8 +9,8 @@ export default function BackgroundCanvas3D() {
     if (!canvas) return
 
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000)
-    camera.position.z = 400
+    const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 2000)
+    camera.position.z = 450
 
     const renderer = new THREE.WebGLRenderer({
       canvas,
@@ -21,55 +21,60 @@ export default function BackgroundCanvas3D() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
 
-    // Particle Constellation Network
-    const particleCount = 120
-    const maxDistance = 110
+    // 3D Deep Space Particle Matrix
+    const particleCount = 180
+    const maxDistance = 120
+    const bounds = { x: 420, y: 350, z: 800 }
+
     const positions = new Float32Array(particleCount * 3)
+    const basePositions = new Float32Array(particleCount * 3)
     const velocities: { x: number; y: number; z: number }[] = []
 
-    const bounds = {
-      x: 350,
-      y: 250,
-      z: 200,
-    }
-
     for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * bounds.x * 2
-      positions[i * 3 + 1] = (Math.random() - 0.5) * bounds.y * 2
-      positions[i * 3 + 2] = (Math.random() - 0.5) * bounds.z * 2
+      const x = (Math.random() - 0.5) * bounds.x * 2
+      const y = (Math.random() - 0.5) * bounds.y * 2
+      const z = (Math.random() - 0.5) * bounds.z * 2
+
+      positions[i * 3] = x
+      positions[i * 3 + 1] = y
+      positions[i * 3 + 2] = z
+
+      basePositions[i * 3] = x
+      basePositions[i * 3 + 1] = y
+      basePositions[i * 3 + 2] = z
 
       velocities.push({
-        x: (Math.random() - 0.5) * 0.35,
-        y: (Math.random() - 0.5) * 0.35,
-        z: (Math.random() - 0.5) * 0.25,
+        x: (Math.random() - 0.5) * 0.3,
+        y: (Math.random() - 0.5) * 0.3,
+        z: (Math.random() - 0.5) * 0.4,
       })
     }
 
-    // Node Points
     const particleGeometry = new THREE.BufferGeometry()
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
 
-    // Soft circular texture
+    // Circular Glowing Texture
     const dotCanvas = document.createElement('canvas')
-    dotCanvas.width = 32
-    dotCanvas.height = 32
+    dotCanvas.width = 64
+    dotCanvas.height = 64
     const dotCtx = dotCanvas.getContext('2d')
     if (dotCtx) {
-      const g = dotCtx.createRadialGradient(16, 16, 0, 16, 16, 16)
-      g.addColorStop(0, 'rgba(167, 139, 250, 1)')
-      g.addColorStop(0.4, 'rgba(56, 189, 248, 0.6)')
-      g.addColorStop(1, 'rgba(0, 0, 0, 0)')
-      dotCtx.fillStyle = g
-      dotCtx.fillRect(0, 0, 32, 32)
+      const grad = dotCtx.createRadialGradient(32, 32, 0, 32, 32, 32)
+      grad.addColorStop(0, 'rgba(255, 255, 255, 1)')
+      grad.addColorStop(0.3, 'rgba(167, 139, 250, 0.9)')
+      grad.addColorStop(0.6, 'rgba(56, 189, 248, 0.4)')
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)')
+      dotCtx.fillStyle = grad
+      dotCtx.fillRect(0, 0, 64, 64)
     }
     const dotTexture = new THREE.CanvasTexture(dotCanvas)
 
     const particleMaterial = new THREE.PointsMaterial({
       color: 0xffffff,
-      size: 4.5,
+      size: 6.0,
       map: dotTexture,
       transparent: true,
-      opacity: 0.65,
+      opacity: 0.75,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     })
@@ -77,8 +82,8 @@ export default function BackgroundCanvas3D() {
     const pointCloud = new THREE.Points(particleGeometry, particleMaterial)
     scene.add(pointCloud)
 
-    // Dynamic Lines Geometry
-    const maxLines = (particleCount * (particleCount - 1)) / 2
+    // Dynamic Neural Lines
+    const maxLines = 600
     const linePositions = new Float32Array(maxLines * 6)
     const lineColors = new Float32Array(maxLines * 6)
 
@@ -97,22 +102,25 @@ export default function BackgroundCanvas3D() {
     const linesMesh = new THREE.LineSegments(lineGeometry, lineMaterial)
     scene.add(linesMesh)
 
-    // Mouse and Scroll tracking
+    // Scroll & Velocity Tracking
+    let targetScrollY = 0
+    let currentScrollY = 0
+    let scrollVelocity = 0
+    let lastScrollY = 0
     let mouseX = 0
     let mouseY = 0
-    let scrollY = 0
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX = (e.clientX - window.innerWidth / 2) * 0.15
-      mouseY = (e.clientY - window.innerHeight / 2) * 0.15
+    const onScroll = () => {
+      targetScrollY = window.scrollY
     }
 
-    const handleScroll = () => {
-      scrollY = window.scrollY
+    const onMouseMove = (e: MouseEvent) => {
+      mouseX = (e.clientX - window.innerWidth / 2) * 0.2
+      mouseY = (e.clientY - window.innerHeight / 2) * 0.2
     }
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
 
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight
@@ -121,72 +129,94 @@ export default function BackgroundCanvas3D() {
     }
     window.addEventListener('resize', handleResize)
 
-    // Animation Loop
+    // Animation Loop with Scroll Flight
     let animationId: number
+    let clock = new THREE.Clock()
 
     const animate = () => {
       animationId = requestAnimationFrame(animate)
+      clock.getDelta()
 
-      // Smooth camera drift based on mouse and scroll
-      camera.position.x += (mouseX - camera.position.x) * 0.03
-      camera.position.y += (-mouseY - (scrollY * 0.1) - camera.position.y) * 0.03
-      camera.lookAt(0, -scrollY * 0.1, 0)
+      // Calculate smooth scroll & momentum velocity
+      scrollVelocity = (targetScrollY - lastScrollY)
+      lastScrollY = targetScrollY
+      currentScrollY += (targetScrollY - currentScrollY) * 0.08
 
+      // 3D Camera Flight based on Scroll
+      // Camera smoothly tracks scroll with 3D roll and pitch
+      camera.position.x += (mouseX - camera.position.x) * 0.04
+      camera.position.y += (-mouseY - (currentScrollY * 0.2) - camera.position.y) * 0.04
+
+      // Camera Z tunnel flight
+      const scrollDepth = (currentScrollY * 0.5) % bounds.z
+      camera.position.z = 450 - scrollDepth * 0.5
+
+      // Subtle 3D camera roll with scroll speed
+      camera.rotation.z = Math.sin(currentScrollY * 0.0015) * 0.05
+      camera.rotation.x = -scrollVelocity * 0.0003
+
+      // Move and wrap particles through 3D tunnel
       let lineVertexIndex = 0
       let colorIndex = 0
       let linesDrawn = 0
 
-      // Update particle positions
+      const warpSpeedFactor = 1.0 + Math.min(Math.abs(scrollVelocity) * 0.05, 4.0)
+
       for (let i = 0; i < particleCount; i++) {
         const i3 = i * 3
+
         positions[i3] += velocities[i].x
         positions[i3 + 1] += velocities[i].y
-        positions[i3 + 2] += velocities[i].z
+        // Warp through space on scroll
+        positions[i3 + 2] += (velocities[i].z - scrollVelocity * 0.15) * warpSpeedFactor
 
-        // Bounce back within bounds
-        if (Math.abs(positions[i3]) > bounds.x) velocities[i].x *= -1
-        if (Math.abs(positions[i3 + 1]) > bounds.y) velocities[i].y *= -1
-        if (Math.abs(positions[i3 + 2]) > bounds.z) velocities[i].z *= -1
+        // Wrap around 3D boundary limits
+        if (positions[i3] > bounds.x) positions[i3] = -bounds.x
+        if (positions[i3] < -bounds.x) positions[i3] = bounds.x
+        if (positions[i3 + 1] > bounds.y) positions[i3 + 1] = -bounds.y
+        if (positions[i3 + 1] < -bounds.y) positions[i3 + 1] = bounds.y
+        if (positions[i3 + 2] > bounds.z) positions[i3 + 2] = -bounds.z
+        if (positions[i3 + 2] < -bounds.z) positions[i3 + 2] = bounds.z
 
-        // Check proximity with other particles to draw lines
-        for (let j = i + 1; j < particleCount; j++) {
-          const j3 = j * 3
-          const dx = positions[i3] - positions[j3]
-          const dy = positions[i3 + 1] - positions[j3 + 1]
-          const dz = positions[i3 + 2] - positions[j3 + 2]
-          const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
+        // Proximity lines
+        if (linesDrawn < maxLines) {
+          for (let j = i + 1; j < Math.min(i + 15, particleCount); j++) {
+            const j3 = j * 3
+            const dx = positions[i3] - positions[j3]
+            const dy = positions[i3 + 1] - positions[j3 + 1]
+            const dz = positions[i3 + 2] - positions[j3 + 2]
+            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
 
-          if (dist < maxDistance) {
-            const alpha = 1.0 - dist / maxDistance
+            if (dist < maxDistance && linesDrawn < maxLines) {
+              const alpha = (1.0 - dist / maxDistance) * 0.7
 
-            linePositions[lineVertexIndex++] = positions[i3]
-            linePositions[lineVertexIndex++] = positions[i3 + 1]
-            linePositions[lineVertexIndex++] = positions[i3 + 2]
+              linePositions[lineVertexIndex++] = positions[i3]
+              linePositions[lineVertexIndex++] = positions[i3 + 1]
+              linePositions[lineVertexIndex++] = positions[i3 + 2]
 
-            linePositions[lineVertexIndex++] = positions[j3]
-            linePositions[lineVertexIndex++] = positions[j3 + 1]
-            linePositions[lineVertexIndex++] = positions[j3 + 2]
+              linePositions[lineVertexIndex++] = positions[j3]
+              linePositions[lineVertexIndex++] = positions[j3 + 1]
+              linePositions[lineVertexIndex++] = positions[j3 + 2]
 
-            // Dynamic cyber gradient: purple (0.65, 0.54, 0.98) to cyan (0.22, 0.74, 0.97)
-            const r = 0.65 * alpha
-            const g = (0.54 + 0.2 * Math.sin(i)) * alpha
-            const b = 0.97 * alpha
+              const r = 0.65 * alpha
+              const g = 0.55 * alpha
+              const b = 0.98 * alpha
 
-            lineColors[colorIndex++] = r
-            lineColors[colorIndex++] = g
-            lineColors[colorIndex++] = b
+              lineColors[colorIndex++] = r
+              lineColors[colorIndex++] = g
+              lineColors[colorIndex++] = b
 
-            lineColors[colorIndex++] = r
-            lineColors[colorIndex++] = g
-            lineColors[colorIndex++] = b
+              lineColors[colorIndex++] = r
+              lineColors[colorIndex++] = g
+              lineColors[colorIndex++] = b
 
-            linesDrawn++
+              linesDrawn++
+            }
           }
         }
       }
 
       particleGeometry.attributes.position.needsUpdate = true
-
       lineGeometry.setDrawRange(0, linesDrawn * 2)
       lineGeometry.attributes.position.needsUpdate = true
       lineGeometry.attributes.color.needsUpdate = true
@@ -198,8 +228,8 @@ export default function BackgroundCanvas3D() {
 
     return () => {
       cancelAnimationFrame(animationId)
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('resize', handleResize)
 
       particleGeometry.dispose()
@@ -214,7 +244,7 @@ export default function BackgroundCanvas3D() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-40 transition-opacity duration-1000"
+      className="fixed inset-0 pointer-events-none z-0 opacity-45 transition-opacity duration-1000"
     />
   )
 }

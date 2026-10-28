@@ -45,7 +45,7 @@ const certs = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
+    <section className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
         <SectionTag text="Verified Credentials" />
         <SectionTitle highlight="Credentials">Certifications &</SectionTitle>

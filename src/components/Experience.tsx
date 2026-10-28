@@ -85,7 +85,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
+    <section className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
         <SectionTag text="Track Record" />
         <SectionTitle highlight="Experience">Professional</SectionTitle>

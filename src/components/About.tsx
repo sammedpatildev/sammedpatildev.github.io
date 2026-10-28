@@ -5,7 +5,7 @@ import { FaAws, FaGraduationCap, FaGlobeAsia, FaServer } from 'react-icons/fa'
 
 export default function About() {
   return (
-    <section id="about" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
+    <section className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
         <SectionTag text="Engineering Profile" />
         <SectionTitle highlight="Architecture">Philosophy &</SectionTitle>

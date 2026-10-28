@@ -45,7 +45,7 @@ const cards = [
 
 export default function AIInnovation() {
   return (
-    <section id="ai" className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
+    <section className="px-4 sm:px-8 lg:px-16 py-20 sm:py-28 relative">
       <div className="max-w-7xl mx-auto">
         <SectionTag text="Agentic Architecture" />
         <SectionTitle highlight="Automation">Generative AI &</SectionTitle>
