@@ -11,38 +11,47 @@ import ProfessionalFooter from './components/professional/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-zinc-800 selection:text-white font-sans antialiased">
-      {/* Fixed Clean Navigation */}
-      <ProfessionalNavbar />
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-zinc-800 selection:text-white font-sans antialiased relative">
+      {/* Subtle modern developer ambient background glow */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(167,139,250,0.08),transparent_70%)]" />
+        <div className="absolute top-[40%] right-[-100px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(56,189,248,0.04),transparent_70%)]" />
+        <div className="absolute bottom-[10%] left-[-100px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(52,211,153,0.04),transparent_70%)]" />
+      </div>
 
-      <main>
-        {/* Hero Section */}
-        <ProfessionalHero />
+      <div className="relative z-10">
+        {/* Fixed Clean Navigation */}
+        <ProfessionalNavbar />
 
-        {/* Profile & Biography */}
-        <ProfessionalAbout />
+        <main>
+          {/* Hero Section with Large Portfolio Portrait */}
+          <ProfessionalHero />
 
-        {/* Work Experience (Work History) */}
-        <ProfessionalExperience />
+          {/* Profile & Biography */}
+          <ProfessionalAbout />
 
-        {/* Systems & Case Studies */}
-        <ProfessionalProjects />
+          {/* Work Experience (Work History) */}
+          <ProfessionalExperience />
 
-        {/* Technical Capabilities */}
-        <ProfessionalSkills />
+          {/* Systems & Case Studies */}
+          <ProfessionalProjects />
 
-        {/* Certifications & Academic Degrees */}
-        <ProfessionalCertificationsEducation />
+          {/* Technical Capabilities */}
+          <ProfessionalSkills />
 
-        {/* Verified Resume Center */}
-        <ProfessionalResumeCenter />
+          {/* Certifications & Academic Degrees */}
+          <ProfessionalCertificationsEducation />
 
-        {/* Direct Contact */}
-        <ProfessionalContact />
-      </main>
+          {/* Verified Resume Center */}
+          <ProfessionalResumeCenter />
 
-      {/* Professional Footer */}
-      <ProfessionalFooter />
+          {/* Direct Contact */}
+          <ProfessionalContact />
+        </main>
+
+        {/* Professional Footer */}
+        <ProfessionalFooter />
+      </div>
     </div>
   )
 }
