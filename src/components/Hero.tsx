@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Hero3DScene from './3d/Hero3DScene'
+import DeveloperDesk3D from './3d/DeveloperDesk3D'
 import Tilt3DCard from './3d/Tilt3DCard'
 
 const stats = [
@@ -136,14 +136,14 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: 3D Interactive WebGL Scene */}
+          {/* Right Column: 3D Interactive Developer Workstation */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-5 relative w-full flex items-center justify-center"
           >
-            <Hero3DScene />
+            <DeveloperDesk3D />
           </motion.div>
         </div>
       </div>
