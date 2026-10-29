@@ -233,7 +233,7 @@ export default function CyberOS({ onSwitchToClassic }: CyberOSProps) {
                 <FaLinkedin className="text-sm" />
               </a>
               <a
-                href="https://github.com/sammedp-aat"
+                href="https://github.com/sammedpatildev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white transition-colors"

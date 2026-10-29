@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 const socials = [
   {
-    href: 'https://github.com/sammedp-aat',
+    href: 'https://github.com/sammedpatildev',
     label: 'GitHub',
     icon: <FaGithub className="w-5 h-5" />,
   },

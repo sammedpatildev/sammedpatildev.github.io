@@ -38,7 +38,7 @@ export default function ProfessionalFooter() {
           {/* Social Links */}
           <div className="flex items-center gap-5">
             <a
-              href="https://github.com/sammedp-aat"
+              href="https://github.com/sammedpatildev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"

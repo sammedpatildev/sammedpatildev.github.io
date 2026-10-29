@@ -29,7 +29,7 @@ const projects = [
       'Designed PostgreSQL normalized relational schemas and Celery task queues for event notification dispatches.',
     ],
     tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'AWS S3', 'Docker', 'Razorpay'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     id: 'mhealth',
@@ -53,7 +53,7 @@ const projects = [
       'Implemented robust RBAC security ensuring strict access boundaries between patients, doctors, and clinic admins.',
     ],
     tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'AWS', 'REST APIs', 'RBAC'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     id: 'ai-suite',
@@ -77,7 +77,7 @@ const projects = [
       'Implemented structured output validation (Pydantic / Instructor) for deterministic enterprise API responses.',
     ],
     tech: ['Python', 'OpenAI API', 'LangGraph', 'RAG', 'Vector Databases', 'FastAPI', 'Django', 'n8n', 'MCP'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     id: 'cmdc-indina',
@@ -101,7 +101,7 @@ const projects = [
       'Configured enterprise authentication pipelines with JWT token rotation, OTP verification, and role-based permissions.',
     ],
     tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'Celery', 'AWS EC2', 'Docker', 'Nginx', 'Gunicorn'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
 ]
 

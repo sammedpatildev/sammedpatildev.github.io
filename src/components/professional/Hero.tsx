@@ -10,14 +10,14 @@ import {
 
 export default function ProfessionalHero() {
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-20 border-b border-zinc-800/60">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-20 border-b border-white/[0.06] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main 2-Column Hero Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-12">
           {/* Left Column: Text & Executive Information (Span 7) */}
           <div className="lg:col-span-7 space-y-6">
             {/* Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono shadow-[0_0_15px_rgba(16,185,129,0.15)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Available for Senior Python & Backend Roles</span>
             </div>
@@ -33,12 +33,12 @@ export default function ProfessionalHero() {
             </div>
 
             {/* Profile Summary directly from Updated Resume */}
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
               Backend Engineer with <strong className="text-white font-semibold">4+ years of experience</strong> designing, scaling, and deploying resilient web architectures and microservices using <strong className="text-white font-mono">Python, Django, DRF, PostgreSQL, and AWS</strong>. AWS Certified Solutions Architect with proven end-to-end ownership in API design, asynchronous processing (<strong className="text-cyan-400 font-mono">Celery/Redis</strong>), ORM query optimization (dropping p99 latency from <strong className="text-emerald-400 font-mono">1.2s to &lt;180ms</strong>), secure authentication (<strong className="text-zinc-200">JWT/RBAC</strong>), and containerized CI/CD deployments. Experienced in integrating <strong className="text-purple-300">GenAI/RAG pipelines</strong>, OpenAI APIs, and payment gateways into high-availability production environments.
             </p>
 
             {/* Contact Coordinates Meta */}
-            <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-zinc-400 pt-2 pb-4 border-b border-zinc-800/60">
+            <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-zinc-400 pt-2 pb-4 border-b border-white/[0.08]">
               <span className="flex items-center gap-1.5">
                 <FaMapMarkerAlt className="text-zinc-500" />
                 Bangalore, Karnataka, India
@@ -56,7 +56,7 @@ export default function ProfessionalHero() {
                 </a>
               </span>
               <span className="flex items-center gap-1.5 text-zinc-300">
-                <FaCheckCircle className="text-emerald-500" />
+                <FaCheckCircle className="text-emerald-400" />
                 AWS Certified Solutions Architect (SAA-C03)
               </span>
             </div>
@@ -66,7 +66,7 @@ export default function ProfessionalHero() {
               <a
                 href="/Sammed_Patil_Resume.pdf"
                 download="Sammed_Patil_Resume.pdf"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-semibold font-mono text-xs sm:text-sm transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-zinc-950 hover:bg-zinc-100 font-semibold font-mono text-xs sm:text-sm transition-all shadow-[0_4px_16px_rgba(255,255,255,0.1)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.2)]"
               >
                 <FaDownload className="text-xs text-zinc-700" />
                 <span>Download Official Resume (PDF)</span>
@@ -74,7 +74,7 @@ export default function ProfessionalHero() {
 
               <a
                 href="#experience"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 hover:text-white font-mono text-xs sm:text-sm transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 border border-white/10 hover:border-white/20 text-zinc-200 hover:text-white font-mono text-xs sm:text-sm transition-all"
               >
                 <span>View Experience</span>
                 <FaArrowRight className="text-xs text-zinc-400" />
@@ -82,7 +82,7 @@ export default function ProfessionalHero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-transparent hover:bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-mono text-xs sm:text-sm transition-all"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-transparent hover:bg-zinc-900/60 border border-white/[0.08] text-zinc-400 hover:text-white font-mono text-xs sm:text-sm transition-all"
               >
                 <span>Contact Directly</span>
               </a>
@@ -93,10 +93,10 @@ export default function ProfessionalHero() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[340px] sm:max-w-[380px]">
               {/* Outer Glow Backlight */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-purple-600/20 via-zinc-700/20 to-emerald-500/20 blur-xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-purple-500/20 via-blue-500/10 to-emerald-500/20 blur-2xl opacity-75 group-hover:opacity-100 transition duration-500 pointer-events-none" />
 
               {/* Main Portrait Card */}
-              <div className="relative rounded-3xl border border-zinc-700/80 bg-zinc-900 shadow-2xl overflow-hidden group">
+              <div className="relative rounded-3xl border border-white/15 bg-zinc-900 shadow-2xl overflow-hidden group">
                 {/* Large Profile Image */}
                 <div className="aspect-[4/5] w-full overflow-hidden bg-zinc-950 relative">
                   <img
@@ -126,7 +126,7 @@ export default function ProfessionalHero() {
                   <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
 
                   {/* Floating Bio Card on the Photo */}
-                  <div className="absolute bottom-4 inset-x-4 p-3.5 rounded-2xl bg-zinc-950/80 backdrop-blur-md border border-white/10 shadow-lg">
+                  <div className="absolute bottom-4 inset-x-4 p-3.5 rounded-2xl bg-zinc-950/85 backdrop-blur-md border border-white/10 shadow-lg">
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="text-sm font-bold text-white font-sans">Sammed Patil</div>
@@ -152,26 +152,26 @@ export default function ProfessionalHero() {
         </div>
 
         {/* Key Engineering Benchmarks from Resume */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8 border-t border-zinc-800/60">
-          <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8 border-t border-white/[0.08]">
+          <div className="p-4 rounded-2xl linear-card">
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-white">4+ Years</div>
             <div className="text-xs font-semibold text-zinc-300 mt-1">Backend Experience</div>
             <div className="text-[11px] text-zinc-500 font-mono mt-0.5">Python • Django • DRF • AWS</div>
           </div>
 
-          <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div className="p-4 rounded-2xl linear-card">
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-400">&lt;180ms</div>
             <div className="text-xs font-semibold text-zinc-300 mt-1">p99 Response Time</div>
             <div className="text-[11px] text-zinc-500 font-mono mt-0.5">Tuned from 1.2s via ORM/Indexes</div>
           </div>
 
-          <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div className="p-4 rounded-2xl linear-card">
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-cyan-400">-40%</div>
             <div className="text-xs font-semibold text-zinc-300 mt-1">Main-Thread Latency</div>
             <div className="text-[11px] text-zinc-500 font-mono mt-0.5">Celery/Redis queue offloading</div>
           </div>
 
-          <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+          <div className="p-4 rounded-2xl linear-card">
             <div className="text-2xl sm:text-3xl font-extrabold font-mono text-purple-400">99.9%</div>
             <div className="text-xs font-semibold text-zinc-300 mt-1">Production Uptime</div>
             <div className="text-[11px] text-zinc-500 font-mono mt-0.5">AWS EC2/S3 • Docker • CI/CD</div>

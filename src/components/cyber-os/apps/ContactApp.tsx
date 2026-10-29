@@ -119,7 +119,7 @@ export default function ContactApp() {
               </div>
             </a>
             <a
-              href="https://github.com/sammedp-aat"
+              href="https://github.com/sammedpatildev"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] flex items-center gap-2.5 transition-all text-xs font-bold text-zinc-200 hover:text-white"
@@ -127,7 +127,7 @@ export default function ContactApp() {
               <FaGithub className="text-zinc-200 text-base" />
               <div className="truncate">
                 <div>GitHub</div>
-                <div className="text-[10px] text-zinc-500 font-normal">sammedp-aat</div>
+                <div className="text-[10px] text-zinc-500 font-normal">sammedpatildev</div>
               </div>
             </a>
           </div>

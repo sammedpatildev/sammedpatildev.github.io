@@ -38,7 +38,7 @@ const PROJECTS: ProjectData[] = [
       'Redis cache-aside pattern for fighter leaderboards & rankings',
       'Role-Based Access Control (Admin, Referee, Coach, Athlete)',
     ],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
     accentColor: 'from-amber-500 to-orange-600',
   },
   {
@@ -61,7 +61,7 @@ const PROJECTS: ProjectData[] = [
       'Zero-downtime database migrations with Django ORM and PostgreSQL',
       'Encrypted patient health records meeting strict privacy standards',
     ],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
     accentColor: 'from-rose-500 to-pink-600',
   },
   {
@@ -84,7 +84,7 @@ const PROJECTS: ProjectData[] = [
       'Strict JSON schema validation with Pydantic v2',
       'Streaming responses with SSE (Server-Sent Events) to web clients',
     ],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
     accentColor: 'from-purple-500 to-indigo-600',
   },
   {
@@ -107,7 +107,7 @@ const PROJECTS: ProjectData[] = [
       'Nginx reverse proxy with SSL termination and rate limiting',
       'Automated database backups and failover replication',
     ],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
     accentColor: 'from-cyan-500 to-blue-600',
   },
 ]

@@ -3,10 +3,11 @@ import { FaFileDownload, FaGithub, FaLinkedin, FaEnvelope, FaBars, FaTimes } fro
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
+  { label: 'Architecture', href: '#architecture' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Certifications', href: '#education' },
+  { label: 'Education', href: '#education' },
   { label: 'Resume', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -39,16 +40,16 @@ export default function ProfessionalNavbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#09090b]/90 backdrop-blur-md border-b border-zinc-800/80 shadow-sm'
+          ? 'bg-[#090a0f]/85 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Identity */}
+        {/* Brand Avatar & Identity */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 rounded-lg overflow-hidden border border-zinc-700 bg-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105 relative">
+          <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/15 bg-zinc-800 flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm">
             <img
               src="/profile.jpg"
               alt="Sammed Patil"
@@ -61,7 +62,7 @@ export default function ProfessionalNavbar() {
             />
             <div
               style={{ display: 'none' }}
-              className="w-full h-full bg-zinc-100 text-zinc-950 font-bold font-mono text-xs items-center justify-center"
+              className="w-full h-full bg-zinc-200 text-zinc-950 font-bold font-mono text-xs items-center justify-center"
             >
               SP
             </div>
@@ -84,10 +85,10 @@ export default function ProfessionalNavbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-md transition-colors ${
+                className={`px-3 py-1.5 rounded-md transition-all duration-200 ${
                   isActive
-                    ? 'text-white bg-zinc-800 font-medium'
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
+                    ? 'text-white bg-white/10 font-semibold shadow-inner'
+                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
                 }`}
               >
                 {link.label}
@@ -96,14 +97,14 @@ export default function ProfessionalNavbar() {
           })}
         </nav>
 
-        {/* Right Action Icons & Resume CTA */}
+        {/* Action Buttons & Resume CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://github.com/sammedp-aat"
+            href="https://github.com/sammedpatildev"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-400 hover:text-white transition-colors p-2 text-sm"
-            title="GitHub: github.com/sammedp-aat"
+            title="GitHub: github.com/sammedpatildev"
           >
             <FaGithub />
           </a>
@@ -127,10 +128,10 @@ export default function ProfessionalNavbar() {
           <a
             href="/Sammed_Patil_Resume.pdf"
             download="Sammed_Patil_Resume.pdf"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-zinc-100 hover:bg-white text-zinc-950 text-xs font-semibold font-mono transition-all ml-2"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white text-zinc-950 hover:bg-zinc-100 text-xs font-semibold font-mono transition-all ml-1 shadow-sm hover:shadow-md"
           >
             <FaFileDownload className="text-zinc-700 text-xs" />
-            <span>Download Resume</span>
+            <span>Resume (PDF)</span>
           </a>
         </div>
 
@@ -146,21 +147,21 @@ export default function ProfessionalNavbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0c0d12] border-b border-zinc-800 px-4 py-4 space-y-1">
+        <div className="md:hidden bg-[#0d0e14]/95 backdrop-blur-xl border-b border-white/10 px-4 py-4 space-y-1">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-sm font-mono text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
+              className="block px-3 py-2 rounded-md text-sm font-mono text-zinc-300 hover:text-white hover:bg-white/[0.04] transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-3 mt-2 border-t border-zinc-800 flex items-center justify-between">
+          <div className="pt-3 mt-2 border-t border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/sammedp-aat"
+                href="https://github.com/sammedpatildev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white text-base"
@@ -185,10 +186,10 @@ export default function ProfessionalNavbar() {
             <a
               href="/Sammed_Patil_Resume.pdf"
               download="Sammed_Patil_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-zinc-100 text-zinc-950 text-xs font-mono font-semibold"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white text-zinc-950 text-xs font-mono font-semibold"
             >
               <FaFileDownload className="text-xs" />
-              <span>Resume PDF</span>
+              <span>Download PDF</span>
             </a>
           </div>
         </div>

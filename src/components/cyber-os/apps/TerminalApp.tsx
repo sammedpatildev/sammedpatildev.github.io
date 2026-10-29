@@ -98,7 +98,7 @@ Degrees  : MCA (Bangalore City University), BCA (RCU University)`,
           text: `Email   : patilsammed022@gmail.com
 Phone   : +91 8217030162 / +91 8296257820
 LinkedIn: https://linkedin.com/in/sammed-patil-dev
-GitHub  : https://github.com/sammedp-aat
+GitHub  : https://github.com/sammedpatildev
 Location: Bangalore, Karnataka, India (Open to Relocation / Remote)`,
         })
         break

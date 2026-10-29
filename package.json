@@ -1,9 +1,9 @@
 {
-  "name": "sammedp-aat.github.io",
+  "name": "sammedpatildev.github.io",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sammedp-aat.github.io",
+  "homepage": "https://sammedpatildev.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -45,7 +45,7 @@ export default function GitHubSection() {
               className="rounded-3xl"
             >
               <motion.a
-                href={`https://github.com/sammedp-aat/${repo.name}`}
+                href={`https://github.com/sammedpatildev/${repo.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
@@ -95,12 +95,12 @@ export default function GitHubSection() {
         <div className="p-6 rounded-3xl bg-black/40 border border-white/10 text-center font-mono text-xs text-zinc-400 backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
           <span>Explore repositories, branches, and commits directly on GitHub.</span>
           <a
-            href="https://github.com/sammedp-aat"
+            href="https://github.com/sammedpatildev"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all font-semibold"
           >
-            <FaGithub /> github.com/sammedp-aat →
+            <FaGithub /> github.com/sammedpatildev →
           </a>
         </div>
       </div>

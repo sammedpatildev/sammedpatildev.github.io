@@ -20,7 +20,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       'Integrated n8n workflow automation to connect custom backend APIs with LLM processing queues.',
     ],
     stack: ['Python', 'OpenAI API', 'LangGraph', 'RAG', 'Vector Databases', 'FastAPI / Django', 'n8n', 'MCP'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     title: 'RoninFC Combat Sports Platform',
@@ -32,7 +32,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       'Integrated Razorpay payment gateway with webhook handlers for subscriptions and media management using AWS S3.',
     ],
     stack: ['Python', 'Django', 'DRF', 'PostgreSQL', 'Celery', 'Redis', 'AWS S3', 'Razorpay'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     title: 'MHealth Maternal Platform',
@@ -44,7 +44,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       'Built automated reminder task queues using Celery & Redis to alert patients and doctors.',
     ],
     stack: ['Python', 'Django', 'DRF', 'FastAPI', 'PostgreSQL', 'Celery', 'Redis', 'Twilio'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     title: 'CMDC Cloud Hosting & Domain Reseller Platform',
@@ -56,7 +56,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       'Built background job queues using Celery for automated domain DNS provisioning.',
     ],
     stack: ['Python', 'Django', 'DRF', 'PostgreSQL', 'Celery', 'Redis', 'Docker', 'Nginx'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     title: 'Indina E-Commerce Platform',
@@ -68,7 +68,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       'Ensured ACID compliance and prevented inventory race conditions during concurrent checkouts.',
     ],
     stack: ['Python', 'Django', 'DRF', 'PostgreSQL', 'Redis', 'JWT', 'RBAC', 'Razorpay'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
   {
     title: 'Service Marketplace Web Application',
@@ -80,7 +80,7 @@ const PROJECTS_DATA: ProjectItem[] = [
       'Optimized cross-browser compatibility, bundle sizes, and performance metrics to achieve top-tier Lighthouse audit scores.',
     ],
     stack: ['React.js', 'JavaScript', 'HTML5', 'CSS3', 'REST APIs', 'Git'],
-    githubUrl: 'https://github.com/sammedp-aat',
+    githubUrl: 'https://github.com/sammedpatildev',
   },
 ]
 

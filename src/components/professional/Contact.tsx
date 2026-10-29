@@ -131,7 +131,7 @@ export default function ProfessionalContact() {
               </a>
 
               <a
-                href="https://github.com/sammedp-aat"
+                href="https://github.com/sammedpatildev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-800/80 transition-all flex items-center justify-center gap-2 text-xs font-mono font-semibold text-zinc-200 hover:text-white"
